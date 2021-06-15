@@ -1,0 +1,6 @@
+{% set template = '@EMSCH/template/pages/default.html.twig' %}
+{% if source.template|default('page') == 'blog' %}
+    {% set template = '@EMSCH/template/pages/blog.html.twig' %}
+{% endif %}
+
+{% extends template %}

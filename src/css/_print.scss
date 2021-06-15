@@ -1,0 +1,76 @@
+@use "sass:math";
+
+@media print {
+
+  body {
+    background-color: #fff;
+    line-height: 1.2;
+  }
+
+  .container {
+    width: auto;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  @for $i from 1 through 12 {
+    .col-print-#{$i} {
+      width: #{percentage(math.div(round($i*8.33),100))};
+      float: left;
+    }
+  }
+
+  .cover {
+    border-radius: 0;
+    margin-top: 0;
+  }
+
+  .cover-bg {
+    margin-top: -10mm;
+    margin-left: -10mm;
+    margin-right: -10mm;
+    height: 32mm;
+    border-radius: 0;
+  }
+
+  .cover.shadow-lg {
+    box-shadow: none !important;
+  }
+
+  .avatar {
+    margin-top: 1mm;
+    max-width: 32mm;
+    max-height: 32mm;
+    padding-left: 2cm;
+    img {
+      width: 30mm;
+      height: 30mm;
+    }
+  }
+
+  .about-section {
+    padding-top: 5mm;
+    margin-bottom: 3mm;
+    .dl-horizontal {
+      dt {
+        text-align: left;
+        width: 100%;
+      }
+      dd {
+        margin-left: 3mm;
+      }
+    }
+  }
+
+  .progress {
+    height: 3mm;
+  }
+
+  .timeline-card {
+    page-break-inside: avoid;
+  }
+
+  .page-footer, .page-footer-space {
+    background: #ffffff;
+  }
+}

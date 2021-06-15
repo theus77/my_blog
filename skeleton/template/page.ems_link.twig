@@ -1,0 +1,6 @@
+{%  spaceless %}
+    {{ path('match_all', {
+        path: source.path|default('/') ,
+        _locale: source.locale|default('en')
+    }) }}
+{% endspaceless %}

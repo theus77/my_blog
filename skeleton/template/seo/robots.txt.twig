@@ -1,0 +1,8 @@
+{%- if 'live' in trans_default_domain -%}
+User-agent: *
+Disallow: /bundles/
+Allow: /
+{%- else -%}
+User-agent: *
+Disallow: /
+{%- endif -%}

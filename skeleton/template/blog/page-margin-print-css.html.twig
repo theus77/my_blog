@@ -1,0 +1,31 @@
+{% extends '@EMSCH/template/variables.twig' %}
+{% block request %}
+<html>
+    <header>
+        <title>Test print margin</title>
+        <link rel="stylesheet" href="{{ asset('bundles/emsch_assets/css/page-margin-print-css.css') }}?{{ hash }}">
+    </header>
+    <body id="top">
+        <table id="page-layout" cellpadding="0" cellspacing="0">
+            <thead><tr><td>
+                <div class="page-header-space">&nbsp;</div>
+            </td></tr></thead>
+            <tbody><tr><td>
+                <div class="content">
+                    {% for i in 1..20 %}
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget sem a massa volutpat auctor. Sed euismod consectetur nunc, eu ornare est ultrices a. Vestibulum vulputate venenatis auctor. Sed vitae velit metus. Vestibulum tellus ante, interdum a volutpat ut, gravida vel ligula. Duis elementum imperdiet turpis, vel placerat sapien luctus in. Pellentesque diam leo, lacinia placerat eros sit amet, porta euismod odio.
+                        </p>
+                    {% endfor %}
+                </div>
+            </td></tr></tbody>
+            <tfoot><tr><td>
+                <div class="page-footer-space">&nbsp;</div>
+            </td></tr></tfoot>
+        </table>
+
+        <div class="page-header" aria-hidden="true">Header</div>
+        <div class="page-footer" aria-hidden="true">Footer</div>
+    </body>
+</html>
+{% endblock request %}

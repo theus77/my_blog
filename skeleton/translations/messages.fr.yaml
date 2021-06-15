@@ -1,0 +1,14 @@
+pages:
+    blog:
+        last_posts: 'Derniers posts'
+website:
+    address: 'Anderlecht, Bruxelles, Belgique'
+    content_in:
+        en: 'Contenu en Anglais'
+        fr: 'Contenu en Français'
+    description: 'Curriculum vitae (CV) de Mathieu De Keyzer: A son propos, compétences techniques, expériences professionnelles et formations'
+    download: Télécharger
+    name: 'Mathieu De Keyzer'
+    sub_title: 'HTTP enthousiaste'
+    title: 'Site Web de Mathieu'
+    url: 'https://mathieu.dekeyzer.net/'

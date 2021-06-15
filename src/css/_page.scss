@@ -1,0 +1,71 @@
+//$page-height: 297mm;
+//$page-width: 210mm;
+$page-margin-header: 10mm;
+$page-margin-side: 10mm;
+$page-margin-footer: 20mm;
+
+.page-header, .page-header-space,
+.page-footer, .page-footer-space {
+  display: none;
+}
+
+table#page-layout {
+  width: 100%;
+}
+
+.page-break {
+  display: none;
+}
+
+@media print {
+  @page
+  {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .page-break {
+    page-break-before: always;
+    display: block;
+  }
+
+  .page-content {
+    background-color: #fff;
+  }
+
+  table#page-layout {
+    & > tbody > tr > td {
+      padding-left: $page-margin-side;
+      padding-right: $page-margin-side;
+    }
+  }
+
+  .page-header, .page-header-space,
+  .page-footer, .page-footer-space {
+    display: block;
+    height: $page-margin-header;
+    width: 100%;
+  }
+
+  .page-footer, .page-footer-space {
+    height: $page-margin-footer;
+  }
+
+  .page-header {
+    padding-top: 2mm;
+    text-align: center;
+    position: fixed;
+    top: 0;
+  }
+  .page-footer {
+    padding-top: 2mm;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+  }
+
+}

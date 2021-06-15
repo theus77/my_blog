@@ -1,0 +1,13 @@
+{% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}
+
+
+{% block widget %}
+    <div>
+        <figure>
+            <img src="{{ ems_asset_path(item.object.file) }}">
+            <figcaption>{{ item.object.label }}</figcaption>
+        </figure>
+    </div>
+{% endblock %}
+
+{% block title %}{% endblock %}

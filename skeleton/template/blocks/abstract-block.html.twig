@@ -1,0 +1,55 @@
+{% block render %}
+    {% spaceless %}
+        {% set childrenHaveBeenGenerated = false %}
+        {% set currentBlockLevel = 1 %}
+        {% set headerBlockLevel = 2 %}
+        {% for item in structure|default([]) %}
+            {% with {
+                'item': item,
+                'currentBlockLevel': currentBlockLevel,
+                'headerBlockLevel': headerBlockLevel,
+                'headerBlockLevel': headerBlockLevel,
+                'trans_default_domain': trans_default_domain,
+            } %}
+                {{ block("row", "@EMSCH/template/blocks/"~item.type~".html.twig") }}
+            {% endwith %}
+        {%  endfor %}
+    {% endspaceless %}
+{% endblock render %}
+
+{% block row %}
+    {% spaceless %}
+        <div class="{{ item.object.class|default('pt-4 px-3 px-lg-4') }}" id="row-{{ item.id }}">
+            {{ block('title', "@EMSCH/template/blocks/"~item.type~".html.twig") }}
+            {{ block('widget', "@EMSCH/template/blocks/"~item.type~".html.twig") }}
+            {%  if item.children|default([])|length > 0 %}
+                {{ block('children', "@EMSCH/template/blocks/"~item.type~".html.twig") }}
+            {% endif %}
+        </div>
+    {% endspaceless %}
+{% endblock row %}
+
+{% block title %}
+    {% spaceless %}
+        {% if item.object.label is defined %}
+            <h{{ headerBlockLevel }} class="h{{ headerBlockLevel+1 }} mb-4 mt-2">{{ item.object.label|default('') }}</h{{ headerBlockLevel }}>
+        {% endif %}
+    {% endspaceless %}
+{% endblock title %}
+
+{% block widget %}
+    <p>{{ ('Block `widget` must be overridden for. `' ~ item.type ~ '`')|ems_markdown }}</p>
+{% endblock widget %}
+
+{% block children %}
+    {% spaceless %}
+        {% if not childrenHaveBeenGenerated %}
+            {% set currentBlockLevel = currentBlockLevel + 1 %}
+            {% set headerBlockLevel = headerBlockLevel + (item.object.label is defined ? 1 : 0) %}
+            {% for item in item.children|default([]) %}
+                {{ block("row", "@EMSCH/template/blocks/"~item.type~".html.twig") }}
+            {% endfor %}
+            {% set childrenHaveBeenGenerated = true %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}

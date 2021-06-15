@@ -1,0 +1,47 @@
+version: "3.3"
+
+services:
+
+  skeleton:
+    image: elasticms/website-skeleton
+    container_name: cv
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+      - APP_ENV=dev
+      - PHP_FPM_MAX_CHILDREN=8
+      - PHP_FPM_REQUEST_MAX_MEMORY_IN_MEGABYTES=64
+      - CONTAINER_HEAP_PERCENT=0.8
+      - EMS_FROM_EMAIL_ADDRESS=dev-skeleton@example.com
+      - EMS_FROM_EMAIL_NAME=DevSkeleton
+      - MAILER_URL=smtp://mailhog:1025
+      - 'ENVIRONMENT_ALIAS_BASE_PATH=../'
+      - 'S3_ACCESS_KEY_ID=CYAQYBMW3YC83ARSGHAH'
+      - 'S3_SECRET_ACCESS_KEY=wSFk9fq+SDLsy/CONRu1nkZYVZWVi1a476DV04xC'
+      - 'S3_DEFAULT_REGION=us-east-1'
+      - 'S3_ENDPOINT_URL=https://s3.gcloud.belgium.be'
+      - 'S3_BUCKET_NAME=webibpt-ems-assets'
+      - 'TRUSTED_PROXIES=127.0.0.1,REMOTE_ADDR'
+      - 'TRUSTED_HOSTS=localhost,preview.webibpt.localhost,*.localhost'
+    volumes:
+      - ./configs/skeleton:/opt/configs
+      - ./skeleton:/opt/src/local/cv_v1_preview
+      - ./skeleton:/opt/src/local/cv_v1_live
+#      - ../EMSCommonBundle:/opt/src/vendor/elasticms/common-bundle
+#      - ../EMSClientHelperBundle:/opt/src/vendor/elasticms/client-helper-bundle
+#      - ../EMSFormBundle:/opt/src/vendor/elasticms/form-bundle
+      - ./dist:/opt/src/public/cv_v1_preview:ro
+      - ./dist:/opt/src/public/cv_v1_live:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.cv.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`{project:[a-z0-9\\-_\\.]+}.cv-dev.localhost`,`{www:(www.)?}{localeName:(cv)}`,`mathieu.dekeyzer.net`)"
+      - "traefik.http.routers.cv.entrypoints=web"
+      - "traefik.http.routers.cv-tls.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`{project:[a-z0-9\\-_\\.]+}.cv-dev.localhost`,`{www:(www.)?}{localeName:(cv)}`,`mathieu.dekeyzer.net`)"
+      - "traefik.http.routers.cv-tls.entrypoints=websecure"
+      - "traefik.http.routers.cv-tls.tls=true"
+
+networks:
+  default:
+    external:
+      name: skeleton

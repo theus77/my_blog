@@ -1,0 +1,23 @@
+{% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}
+
+{% block row %}
+    <div class="timeline-card{% if item.object.color is defined %} timeline-card-{{ item.object.color }}{% endif %} card shadow-sm">
+        <div class="card-body">
+            <div class="h4 mb-1">
+                {{ item.object.label|default('') }}
+                {% if attribute(item.object, 'sub-title') is defined %}
+                    &nbsp;<span class="text-muted h6">{{ attribute(item.object, 'sub-title') }}</span>
+                {% endif %}
+            </div>
+            {% if item.object.period is defined %}
+                <div class="text-muted text-small mb-2">{{ item.object.period }}</div>
+            {% endif %}
+            <div class="">
+                {{ item.object.body|default('')|emsch_routing }}
+            </div>
+            <div>
+                {{ block('children') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

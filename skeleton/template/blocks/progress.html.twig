@@ -1,0 +1,14 @@
+{% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}
+
+{% block row %}
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-1 col-print-4">
+        <span>{{ item.object.label|default('') }}</span>
+        <div class="progress my-1">
+            <div class="progress-bar bg-primary" role="progressbar" aria-label="{{ item.object.label|default('') }}" style="width: {{ item.object.value|default(0) }}%" aria-valuenow="{{ item.object.value|default(0) }}" aria-valuemin="0" aria-valuemax="100">
+            </div>
+        </div>
+        {%  if item.children|default([])|length > 0 %}
+            <div>{% block children %}{% endblock %}</div>
+        {% endif %}
+    </div>
+{% endblock %}

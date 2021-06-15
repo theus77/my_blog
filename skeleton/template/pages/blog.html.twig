@@ -1,0 +1,29 @@
+{% extends '@EMSCH/template/pages/default.html.twig' %}
+{% trans_default_domain trans_default_domain %}
+
+
+{% block blocks %}
+    <div class="row">
+        <div class="col-md-8">
+            {{ parent() }}
+        </div>
+        <div class="col-md-4 mt-3 pr-3">
+            {{ block('toc', '@EMSCH/template/helper/toc.html.twig') }}
+
+            <h2 class="h3 mt-2">{{ 'pages.blog.last_posts'|trans }}</h2>
+            {% with {
+                'trans_default_domain': trans_default_domain,
+                'item': {
+                    id: 'blog-template',
+                    type: 'last_updates',
+                    object: {
+                        title: 'blog.last_update',
+                        limit: 10,
+                    }
+                }
+            } %}
+                {{ block("row", "@EMSCH/template/blocks/last_updates.html.twig") }}
+            {% endwith %}
+        </div>
+    </div>
+{% endblock blocks %}

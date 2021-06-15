@@ -1,0 +1,109 @@
+{% extends '@EMSCH/template/variables.twig' %}
+{% trans_default_domain trans_default_domain %}
+
+{%- set data = {
+    phone: app.request.server.all['DATA_PHONE']|default('+32 4XX XX.XX.XX'),
+    socials:[{
+        name: 'Website',
+        icon: 'fab fa-html5',
+        url: 'https://mathieu.dekeyzer.net',
+    },{
+        name: 'GitHub',
+        icon: 'fab fa-github',
+        url: 'https://github.com/theus77',
+    },{
+        name: 'Linkedin',
+        icon: 'fab fa-linkedin',
+        url: 'https://www.linkedin.com/in/mathieudk/',
+    },{
+        name: 'Instagram',
+        icon: 'fab fa-instagram',
+        url: 'https://www.instagram.com/dekeyzermathieu/',
+    }],
+} -%}
+
+{% block request %}
+    {% spaceless %}
+        <!DOCTYPE html>
+        <html lang="{{ app.request.locale }}">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>{% block title %}{{- attribute(source, 'title')|default('website.title'|trans) -}}{% endblock title%} | {% block sub_title %}{{- attribute(source, 'sub-title')|default('website.sub_title'|trans) -}}{% endblock sub_title%} | {{ 'website.title'|trans }}</title>
+                <meta name="description" content="{% block meta_description %}{{ source.description|default('website.description'|trans)|e('html_attr') }}{% endblock meta_description %}">
+
+                {% block headers %}
+                    <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('bundles/emsch_assets/static/icon64.png') }}?{{ hash }}">
+                    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('bundles/emsch_assets/static/icon180.png') }}?{{ hash }}">
+                    <meta name="msapplication-square70x70logo" content="{{ asset('bundles/emsch_assets/static/icon70.png') }}?{{ hash }}">
+                    <meta name="msapplication-square150x150logo" content="{{ asset('bundles/emsch_assets/static/icon150.png') }}?{{ hash }}">
+                    <meta name="msapplication-square310x310logo" content="{{ asset('bundles/emsch_assets/static/icon310.png') }}?{{ hash }}">
+                    <meta name="theme-color" content="#2e2e2e"/>
+                    <meta name="msapplication-wide310x150logo" content="{{ asset('bundles/emsch_assets/static/icon-rect-310.png') }}?{{ hash }}">
+                    <meta name="msapplication-TileColor" content="#3B3F41">
+
+                    <link rel="stylesheet" href="{{ asset('bundles/emsch_assets/css/app.css') }}?{{ hash }}">
+                {% endblock headers %}
+
+            </head>
+            <body id="top">
+                {% block body %}
+                    <table id="page-layout" cellpadding="0" cellspacing="0">
+                        <thead><tr><td>
+                            <div class="page-header-space" aria-hidden="true">&nbsp;</div>
+                        </td></tr></thead>
+                        <tbody><tr><td>
+                            <div class="page-content">
+                                {%- block page_content %}{% endblock page_content -%}
+                            </div>
+                        </td></tr></tbody>
+                        <tfoot><tr><td>
+                            <div class="page-footer-space" aria-hidden="true">&nbsp;</div>
+                        </td></tr></tfoot>
+                    </table>
+
+
+                    <footer class="pt-4 pb-4 text-muted text-center">
+                        <div class="container d-print-none">
+                            <div class="my-3">
+                                <div class="h4">{{ 'website.name'|trans }}</div>
+                                <div class="footer-nav">
+                                    <nav role="navigation">
+                                        <ul class="nav justify-content-center">
+                                            {% for social in data.socials %}
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{ social.url }}" title="{{ social.name }}">
+                                                        <i class="{{ social.icon }}"></i>
+                                                        <span class="menu-title sr-only">{{ social.name }}</span>
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="text-small">
+                                <div class="mb-1">© {{ 'now'|date('Y') }}. All rights reserved.</div>
+                            </div>
+                        </div>
+                    </footer>
+                {% endblock body %}
+
+
+                <div class="page-header" aria-hidden="true"></div>
+                <div class="page-footer" aria-hidden="true">
+                    {% block print_footer %}
+                        <div>{{ 'website.name'|trans }}&nbsp;•&nbsp;{{ data.phone }}&nbsp;•&nbsp;<a href="{{ 'website.url'|trans }}">{{ 'website.url'|trans }}</a></div>
+                        <div>{{ 'website.address'|trans }}</div>
+                    {% endblock print_footer %}
+                </div>
+
+                {% block javascript %}
+                    <script type="javascript" src="{{ asset('bundles/emsch_assets/js/app.js') }}?{{ hash }}" defer></script>
+                {% endblock javascript %}
+
+            </body>
+        </html>
+    {% endspaceless -%}
+{% endblock request %}

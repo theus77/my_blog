@@ -1,0 +1,53 @@
+{% extends '@EMSCH/template/pages/cv.html.twig' %}
+
+{% block request %}
+    {% spaceless %}
+        {% set localPath = true %}
+        {{ parent() }}
+    {% endspaceless %}
+{% endblock request %}
+
+{% block headers %}
+    {% spaceless %}
+        <meta name="pdf:filename" content="cv-mathieu-de-keyzer-{{ 'now'|date('d-m-Y') }}.pdf" />
+        <meta name="pdf:attachment" content="false" />
+        <meta name="pdf:compress" content="true" />
+        <meta name="pdf:html5Parsing" content="true" />
+        <meta name="pdf:orientation" content="portrait" />
+        <meta name="pdf:size" content="a4" />
+        <link rel="stylesheet" href="{{ app.request.server.all['CONTEXT_DOCUMENT_ROOT'] }}/bundles/{{ app.request.server.all['ENVIRONMENT_ALIAS'] }}/css/pdf.css">
+        <link rel="stylesheet" href="{{ asset('cv_v1_preview/css/pdf.css') }}">
+    {% endspaceless %}
+{% endblock headers %}
+
+{% block body %}
+    <footer>
+        {{ block('print_footer') }}
+    </footer>
+    <div class="page-content">
+        {{ block('page_content') }}
+    </div>
+{% endblock body %}
+
+
+{% block ball %}<img src="{{ app.request.server.all['CONTEXT_DOCUMENT_ROOT'] }}/bundles/{{ app.request.server.all['ENVIRONMENT_ALIAS'] }}/static/white-ball.png">{% endblock ball %}
+
+
+{% block skills %}
+    <table>
+        <tr>
+            {%  for skill in data.skills %}
+                <td>
+                    <span>{{ skill.name }}</span>
+                    <div class="progress my-1">
+                        <div class="progress-bar bg-primary" role="progressbar" aria-label="{{ skill.name|e('html_attr') }}" style="width: {{ skill.level }}%" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                </td>
+                {% if (loop.index % 3) == 0 %}
+                    </tr><tr>
+                {%  endif %}
+            {% endfor %}
+        </tr>
+    </table>
+{% endblock skills %}

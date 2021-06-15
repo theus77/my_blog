@@ -1,0 +1,20 @@
+{% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}
+
+{% block row %}
+    {% spaceless %}
+        {% if item.object.hr|default(false) %}
+            <hr class="d-print-none">
+        {% endif %}
+        <div class="{{ item.object.class|default('pt-4 px-3 px-lg-4') }}" id="row-{{ item.id }}">
+            {{ block('title', "@EMSCH/template/blocks/"~item.type~".html.twig") }}
+            <div class="row">
+                {{ block('widget', "@EMSCH/template/blocks/"~item.type~".html.twig") }}
+                {%  if item.children|default([])|length > 0 %}
+                    {{ block('children', "@EMSCH/template/blocks/"~item.type~".html.twig") }}
+                {% endif %}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock row %}
+
+{% block widget %}{% endblock widget %}

@@ -1,0 +1,5 @@
+{% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}
+
+{% block widget %}
+    {{ item.object.body|default('')|ems_markdown|emsch_routing }}
+{% endblock %}

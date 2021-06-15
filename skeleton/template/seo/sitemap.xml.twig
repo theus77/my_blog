@@ -1,0 +1,46 @@
+{% extends '@EMSCH/template/variables.twig' %}
+
+{% set pages = emsch_search('page', {
+    "sort": {
+        "_finalization_datetime": {
+            "order": "desc",
+            "missing": "_last",
+            "unmapped_type": "long"
+        }
+    },
+    "size": 1000,
+    "_source": ["_finalization_datetime", "path", "avatar", "title", "locale"],
+}).hits.hits|default([]) %}
+
+{% block request %}
+    {% spaceless %}
+        <?xml version="1.0" encoding="UTF-8"?>
+        <?xml-stylesheet type="text/xsl" href="{{ asset('bundles/emsch_assets/static/sitemap.xsl') }}?{{ hash }}"?>
+        <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            {% for page in pages %}
+                <url>
+                    <loc>{{ baseDomain }}{{ path('match_all', {
+                            path: page._source.path,
+                            _locale: page._source.locale
+                        }) }}</loc>
+                    <lastmod>{{ page._source._finalization_datetime|date('c') }}</lastmod>
+                    <changefreq>weekly</changefreq>
+                    <priority>0.7</priority>
+                    {% if page._source.avatar is defined %}
+                        <image:image>
+                            <image:loc>{{ baseDomain }}/{{ ems_asset_path(page._source.avatar, {
+                                    _config_type: 'image',
+                                    _resize: 'fillArea',
+                                    _width: 400,
+                                    _height: 400,
+                                    _quality: 80,
+                                    _get_file_path: localPath,
+                                }) }}</image:loc>
+                            <image:title><![CDATA[{{ page._source.title|default('Page') }}'s picture]]></image:title>
+                        </image:image>
+                    {% endif %}
+                </url>
+            {% endfor %}
+        </urlset>
+    {% endspaceless -%}
+{% endblock request %}

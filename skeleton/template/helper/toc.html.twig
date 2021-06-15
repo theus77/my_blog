@@ -1,0 +1,32 @@
+{% trans_default_domain trans_default_domain %}
+
+{% block sub_toc %}
+    {% if item.children|default([])|length > 1 %}
+        <ul class="list-group pt-2">
+            {% for item in item.children %}
+                {{ block('item') }}
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock sub_toc %}
+
+
+{% block toc %}
+    {% set blocks = source.blocks|default('{}')|ems_json_decode %}
+    {% if blocks|length > 2 %}
+        <ul class="list-group p-3">
+            {% for item in blocks %}
+                {{ block('item') }}
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock toc %}
+
+{% block item %}
+    {% if item.label is defined %}
+        <li class="list-group-item">
+            <a href="#row-{{ item.id }}">{{ item.label }}</a>
+            {{- block('sub_toc') -}}
+        </li>
+    {% endif %}
+{% endblock item %}

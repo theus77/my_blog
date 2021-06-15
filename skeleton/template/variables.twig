@@ -1,0 +1,9 @@
+{% spaceless %}
+    {% set hash = '3452c6a55c543fb0402c04964f720bba7e843035' %}
+    {% set avatarHash = '52f80b11e9d2b5b5b73c6a786800e8b8c4949e3a' %}
+    {% set baseDomain = 'https://mathieu.dekeyzer.net' %}
+    {% set localPath = false %}
+    {{ emsch_assets(hash) }}
+    {% block request %}
+    {% endblock request %}
+{% endspaceless -%}

@@ -1,0 +1,42 @@
+blog_test_print_margin:
+    config:
+        path: /blog/test/page-margin-print-css
+    template_static: template/blog/page-margin-print-css.html.twig
+    order: 1
+cv_pdf_format:
+    config:
+        path: /mathieu-de-keyzer.pdf
+        controller: emsch.controller.pdf
+    template_static: template/pages/cv.pdf.twig
+    order: 2
+google-site-verification:
+    config:
+        path: /google559a317bdba2ec40.html
+    template_static: template/seo/google-site-verification.html.twig
+    order: 3
+robots.txt:
+    config:
+        path: /robots.txt
+        defaults: { _format: txt }
+    template_static: template/seo/robots.txt.twig
+    order: 3
+sitemap.xml:
+    config:
+        path: /sitemap.xml
+        defaults: { _format: xml }
+    template_static: template/seo/sitemap.xml.twig
+    order: 3
+favicon_ico:
+    config:
+        path: /favicon.ico
+        controller: 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction'
+        defaults: { permanent: true, path: '/bundles/emsch_assets/static/icon64.png?1b0ece819cfd009e2a86eb0fb007dc2df2c766b8' }
+    order: 4
+match_all:
+    config:
+        path: { fr: 'fr/{path}', en: '{path}' }
+        defaults: { path: / }
+        requirements: { path: '^(?!(_wdt|_profiler|file)(\/.*$)?).+' }
+    query: '{"query":{"bool":{"must":[{"term":{"path":{"value":"%path%","boost":1}}},{"term":{"locale":{"value":"%_locale%","boost":1}}},{"terms":{"_contenttype":["page"]}}]}},"size":1}'
+    template_static: template/pages/page.html.twig
+    order: 100
