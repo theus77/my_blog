@@ -34,16 +34,16 @@
                 <meta name="description" content="{% block meta_description %}{{ source.description|default('website.description'|trans)|e('html_attr') }}{% endblock meta_description %}">
 
                 {% block headers %}
-                    <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('bundles/emsch_assets/static/icon64.png') }}?{{ hash }}">
-                    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('bundles/emsch_assets/static/icon180.png') }}?{{ hash }}">
-                    <meta name="msapplication-square70x70logo" content="{{ asset('bundles/emsch_assets/static/icon70.png') }}?{{ hash }}">
-                    <meta name="msapplication-square150x150logo" content="{{ asset('bundles/emsch_assets/static/icon150.png') }}?{{ hash }}">
-                    <meta name="msapplication-square310x310logo" content="{{ asset('bundles/emsch_assets/static/icon310.png') }}?{{ hash }}">
+                    <link rel="icon" type="image/png" sizes="64x64" href="{{ asset(baseUrl ~ 'bundles/emsch_assets/static/icon64.png') }}?{{ hash }}">
+                    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset(baseUrl ~ 'bundles/emsch_assets/static/icon180.png') }}?{{ hash }}">
+                    <meta name="msapplication-square70x70logo" content="{{ asset(baseUrl ~ 'bundles/emsch_assets/static/icon70.png') }}?{{ hash }}">
+                    <meta name="msapplication-square150x150logo" content="{{ asset(baseUrl ~ 'bundles/emsch_assets/static/icon150.png') }}?{{ hash }}">
+                    <meta name="msapplication-square310x310logo" content="{{ asset(baseUrl ~ 'bundles/emsch_assets/static/icon310.png') }}?{{ hash }}">
                     <meta name="theme-color" content="#2e2e2e"/>
-                    <meta name="msapplication-wide310x150logo" content="{{ asset('bundles/emsch_assets/static/icon-rect-310.png') }}?{{ hash }}">
+                    <meta name="msapplication-wide310x150logo" content="{{ asset(baseUrl ~ 'bundles/emsch_assets/static/icon-rect-310.png') }}?{{ hash }}">
                     <meta name="msapplication-TileColor" content="#3B3F41">
 
-                    <link rel="stylesheet" href="{{ asset('bundles/emsch_assets/css/app.css') }}?{{ hash }}">
+                    <link rel="stylesheet" href="{{ asset(baseUrl ~ 'bundles/emsch_assets/css/app.css') }}?{{ hash }}">
                 {% endblock headers %}
 
             </head>
@@ -100,7 +100,7 @@
                 </div>
 
                 {% block javascript %}
-                    <script src="{{ asset('bundles/emsch_assets/js/app.js?'~hash) }}"></script>
+                    <script src="{{ asset(baseUrl ~ 'bundles/emsch_assets/js/app.js') }}?{{ hash }}" defer></script>
                 {% endblock javascript %}
 
             </body>
