@@ -100,7 +100,7 @@
                 </div>
 
                 {% block javascript %}
-                    <script type="javascript" src="{{ asset('bundles/emsch_assets/js/app.js') }}?{{ hash }}" defer></script>
+                    <script src="{{ asset('bundles/emsch_assets/js/app.js?'~hash) }}"></script>
                 {% endblock javascript %}
 
             </body>
