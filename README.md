@@ -42,21 +42,10 @@ You will have to accept self-signed certificate
 
 - [mailhog: capture all email sent](http://mailhog.localhost/)
 - [Traefik: routing app](http://localhost:8888/dashboard/#/)
-- Template URLs:
-    - [template fr](https://template-sdbx-fr.webibpt.localhost/)
-    - [template nl](https://template-sdbx-nl.webibpt.localhost/)
-    - [template en](https://template-sdbx-en.webibpt.localhost/)
-    - [template de](https://template-sdbx-de.webibpt.localhost/)
 - Preview URLs:
-    - [preview fr](https://preview-fr.webibpt.localhost/)
-    - [preview nl](https://preview-nl.webibpt.localhost/)
-    - [preview en](https://preview-en.webibpt.localhost/)
-    - [preview de](https://preview-de.webibpt.localhost/)
+    - [preview](https://preview.cv.localhost/)
 - Live URLs:
-    - [live fr](https://live-fr.webibpt.localhost/)
-    - [live nl](https://live-nl.webibpt.localhost/)
-    - [live en](https://live-en.webibpt.localhost/)
-    - [live de](https://live-de.webibpt.localhost/)
+    - [live](https://live.cv.localhost/)
 
 Useful commands:
 
