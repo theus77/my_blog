@@ -4,7 +4,7 @@
     {% set baseDomain = 'https://mathieu.dekeyzer.net' %}
     {% set baseUrl = app.request.baseUrl ends with 'index.php' ? (app.request.baseUrl ~ '/') : '' %}
     {% set localPath = false %}
-    {{ emsch_assets(hash) }}
+    {% do emsch_assets_version(hash) %}
     {% block request %}
     {% endblock request %}
 {% endspaceless -%}
