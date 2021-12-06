@@ -6,6 +6,7 @@
 
 import adminMenu from '@elasticms/admin-menu';
 import '../css/app.scss';
+import {drawioPreviewer} from './module/drawio'
 
 adminMenu();
 
@@ -13,4 +14,5 @@ adminMenu();
 
 (function() {
     console.log('CV website loaded!');
+    drawioPreviewer();
 })();
