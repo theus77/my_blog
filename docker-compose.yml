@@ -24,6 +24,7 @@ services:
       - 'S3_BUCKET_NAME=webibpt-ems-assets'
       - 'TRUSTED_PROXIES=127.0.0.1,REMOTE_ADDR'
       - 'TRUSTED_HOSTS=localhost,preview.webibpt.localhost,*.localhost'
+      - 'EMSCH_ASSET_LOCAL_FOLDER=skeleton-assets'
     volumes:
       - ./configs/skeleton:/opt/configs
       - ./skeleton:/opt/src/local/cv_v1_preview
@@ -31,6 +32,7 @@ services:
 #      - ../EMSCommonBundle:/opt/src/vendor/elasticms/common-bundle
 #      - ../EMSClientHelperBundle:/opt/src/vendor/elasticms/client-helper-bundle
 #      - ../EMSFormBundle:/opt/src/vendor/elasticms/form-bundle
+      - ./dist:/opt/src/public/skeleton-assets:ro
       - ./dist:/opt/src/public/cv_v1_preview:ro
       - ./dist:/opt/src/public/cv_v1_live:ro
     labels:
