@@ -12,6 +12,10 @@ adminMenu();
 
 // AOS.init({anchorPlacement:'top-left',duration:1000});
 
+document.addEventListener('ems-preview', function (event){
+    console.log('ems-preview loaded!');
+});
+
 (function() {
     console.log('CV website loaded!');
     drawioPreviewer();
