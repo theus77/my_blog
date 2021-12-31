@@ -14,6 +14,7 @@ adminMenu();
 
 document.addEventListener('ems-preview', function (event){
     console.log('ems-preview loaded!');
+    drawioPreviewer();
 });
 
 (function() {

@@ -27,6 +27,10 @@ function drawioPreviewer() {
 
             const script = document.createElement('script');
             script.setAttribute('type', 'text/javascript');
+            script.addEventListener("load", function() {
+                const redrawEvent = new Event('redraw');
+                window.dispatchEvent(redrawEvent);
+            });
             script.setAttribute('src', '//viewer.diagrams.net/js/viewer-static.min.js');
             document.body.appendChild(script);
 
