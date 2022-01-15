@@ -26,10 +26,13 @@ sub vcl_recv {
     set req.http.X-Forwarded-Port = "80";
   }
 
- if (std.healthy(default)) {
-   // change the behavior for healthy backends: Cap grace to 10s
-   set req.grace = 10s;
- }
+  //activate the render_esi responses
+  set req.http.Surrogate-Capability = "ESI/1.0";
+
+  if (std.healthy(default)) {
+    // change the behavior for healthy backends: Cap grace to 10s
+    set req.grace = 10s;
+  }
 
 
   // Remove all cookies except the session ID.
