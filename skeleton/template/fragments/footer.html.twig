@@ -1,0 +1,42 @@
+{%- trans_default_domain trans_default_domain -%}
+{%- set socials = [{
+        name: 'Website',
+        icon: 'fab fa-html5',
+        url: 'https://mathieu.dekeyzer.net',
+    },{
+        name: 'GitHub',
+        icon: 'fab fa-github',
+        url: 'https://github.com/theus77',
+    },{
+        name: 'Linkedin',
+        icon: 'fab fa-linkedin',
+        url: 'https://www.linkedin.com/in/mathieudk/',
+    },{
+        name: 'Instagram',
+        icon: 'fab fa-instagram',
+        url: 'https://www.instagram.com/dekeyzermathieu/',
+    }] -%}
+{% apply spaceless %}
+    <div class="container d-print-none">
+        <div class="my-3">
+            <div class="h4">{{ 'website.name'|trans }}</div>
+            <div class="footer-nav">
+                <nav role="navigation">
+                    <ul class="nav justify-content-center">
+                        {% for social in socials %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ social.url }}" title="{{ social.name }}">
+                                    <i class="{{ social.icon }}"></i>
+                                    <span class="menu-title sr-only">{{ social.name }}</span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="text-small">
+            <div class="mb-1">© {{ 'now'|date('Y') }}. All rights reserved.</div>
+        </div>
+    </div>
+{% endapply %}

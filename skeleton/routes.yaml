@@ -21,6 +21,10 @@ sitemap.xml:
         path: /sitemap.xml
         defaults: { _format: xml }
     template_static: template/seo/sitemap.xml.twig
+fragment_footer:
+    config:
+        path: /_fragments/footer.html
+    template_static: template/fragments/footer.html.twig
 favicon_ico:
     config:
         path: /favicon.ico

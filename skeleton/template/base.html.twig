@@ -65,28 +65,7 @@
 
 
                     <footer class="pt-4 pb-4 text-muted text-center">
-                        <div class="container d-print-none">
-                            <div class="my-3">
-                                <div class="h4">{{ 'website.name'|trans }}</div>
-                                <div class="footer-nav">
-                                    <nav role="navigation">
-                                        <ul class="nav justify-content-center">
-                                            {% for social in data.socials %}
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="{{ social.url }}" title="{{ social.name }}">
-                                                        <i class="{{ social.icon }}"></i>
-                                                        <span class="menu-title sr-only">{{ social.name }}</span>
-                                                    </a>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="text-small">
-                                <div class="mb-1">© {{ 'now'|date('Y') }}. All rights reserved.</div>
-                            </div>
-                        </div>
+                        {{ render(url('fragment_footer')) }}
                     </footer>
                 {% endblock body %}
 
