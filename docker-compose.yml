@@ -42,6 +42,30 @@ services:
       - "traefik.http.routers.cv-tls.entrypoints=websecure"
       - "traefik.http.routers.cv-tls.tls=true"
 
+  varnish:
+    image: varnish:6.2
+    container_name: varnish
+    depends_on:
+      - skeleton
+    volumes:
+      - ./configs/varnish.vcl:/etc/varnish/default.vcl
+      - varnish:/var/lib/varnish
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.cv-varnish.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}-varnish.cv.localhost`,`{project:[a-z0-9\\-_\\.]+}-varnish.cv-dev.localhost`,`{www:(www.)?}{localeName:(cv)}`,`mathieu.dekeyzer.net`)"
+      - "traefik.http.routers.cv-varnish.entrypoints=web"
+      - "traefik.http.routers.cv-varnish-tls.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}-varnish.cv.localhost`,`{project:[a-z0-9\\-_\\.]+}-varnish.cv-dev.localhost`,`{www:(www.)?}{localeName:(cv)}`,`mathieu.dekeyzer.net`)"
+      - "traefik.http.routers.cv-varnish-tls.entrypoints=websecure"
+      - "traefik.http.routers.cv-varnish-tls.tls=true"
+
+volumes:
+  varnish:
+    driver: local
+
 networks:
   default:
     external:
