@@ -1,32 +1,5 @@
 {% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}
 
 {% block widget %}
-    {% trans_default_domain trans_default_domain %}
-    {% set result = emsch_search('page', {
-        "query": {
-            "term": {
-                "template": "blog"
-            }
-        },
-        "sort": {
-            "published_date": {
-                "order": "desc",
-                "missing": "_last",
-                "unmapped_type": "long"
-            }
-        }
-    }, 0 , item.object.limit|default(10)) %}
-
-    <ul>
-        {% for item in result.hits.hits %}
-            <li><a lang="{{ item._source.locale }}" href="{{ path('match_all', {
-                    path:item._source.path,
-                    _locale:item._source.locale,
-                }) }}">{{ item._source.title }}</a>
-            {% if app.request.locale != item._source.locale %}
-                &nbsp;[{{ ('website.content_in.'~item._source.locale)|trans }}]
-            {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+    {{ render_esi(path('fragment_last_updates', {limit: item.object.limit})) }}
 {% endblock %}
