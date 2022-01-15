@@ -59,14 +59,7 @@
                 <div class="social-section px-3 px-lg-4 pb-4">
                     <div class="offset-3 col d-none d-print-block">
                         <div class="mt-2">
-                            <div>
-                                {% for social in data.socials %}
-                                    <div class="mb-2">
-                                        <div class="text-dark"><i class="{{ social.icon }} mr-1"></i><span>&nbsp;<a href="{{ social.url }}">{{ social.url }}</a></span>
-                                        </div>
-                                    </div>
-                                {% endfor %}
-                            </div>
+                            {{ render(url('fragment_socials')) }}
                         </div>
                     </div>
                 </div>

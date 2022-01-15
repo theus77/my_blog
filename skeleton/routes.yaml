@@ -25,6 +25,10 @@ fragment_footer:
     config:
         path: /_fragments/footer.html
     template_static: template/fragments/footer.html.twig
+fragment_socials:
+    config:
+        path: /_fragments/socials.html
+    template_static: template/fragments/socials.html.twig
 favicon_ico:
     config:
         path: /favicon.ico
