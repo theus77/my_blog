@@ -22,8 +22,9 @@ services:
       - 'S3_DEFAULT_REGION=${S3_DEFAULT_REGION}'
       - 'S3_ENDPOINT_URL=${S3_ENDPOINT_URL}'
       - 'S3_BUCKET_NAME=${S3_BUCKET_NAME}'
+      - 'BACKEND_URL=${BACKEND_URL}'
       - 'TRUSTED_PROXIES=127.0.0.1,REMOTE_ADDR'
-      - 'TRUSTED_HOSTS=localhost,preview.webibpt.localhost,*.localhost'
+      - 'TRUSTED_HOSTS=localhost,*.localhost'
       - 'EMSCH_ASSET_LOCAL_FOLDER=skeleton'
     volumes:
       - ./configs/skeleton:/opt/configs
