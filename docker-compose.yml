@@ -3,7 +3,7 @@ version: "3.3"
 services:
 
   skeleton:
-    image: elasticms/website-skeleton
+    image: elasticms/website-skeleton:3.8.1
     container_name: cv
     environment:
       - PUID=1000
@@ -44,7 +44,7 @@ services:
 
   varnish:
     image: varnish:6.2
-    container_name: varnish
+    container_name: varnish_cv
     depends_on:
       - skeleton
     volumes:
