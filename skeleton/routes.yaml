@@ -24,6 +24,7 @@ sitemap.xml:
 fragment_footer:
     config:
         path: /_fragments/footer.html
+    query: '{"query":{"bool":{"must":[{"term":{"_id":"VFXMYX4BJPvkxMnifPeS"}},{"terms":{"_contenttype":["structure"]}}]}},"size":1}'
     template_static: template/fragments/footer.html.twig
 fragment_socials:
     config:
