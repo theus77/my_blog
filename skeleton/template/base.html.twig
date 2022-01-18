@@ -44,7 +44,12 @@
 
 
                     <footer class="pt-4 pb-4 text-muted text-center">
-                        {{ render_esi(path('fragment_footer')) }}
+                        {{ render_esi(controller('emsch.controller.embed::fragment', {
+                            template: '@EMSCH/template/fragments/footer.html.twig',
+                            context: {
+                                trans_default_domain: trans_default_domain,
+                            },
+                        })) }}
                     </footer>
                 {% endblock body %}
 

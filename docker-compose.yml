@@ -3,7 +3,7 @@ version: "3.3"
 services:
 
   skeleton:
-    image: elasticms/website-skeleton:3.8.1
+    image: elasticms/website-skeleton
     container_name: cv
     environment:
       - PUID=1000

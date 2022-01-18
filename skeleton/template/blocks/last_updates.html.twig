@@ -1,5 +1,11 @@
 {% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}
 
 {% block widget %}
-    {{ render_esi(path('fragment_last_updates', {limit: item.object.limit})) }}
+    {{ render_esi(controller('emsch.controller.embed::fragment', {
+        template: '@EMSCH/template/fragments/last_updates.html.twig',
+        context: {
+            trans_default_domain: trans_default_domain,
+            limit: item.object.limit
+        },
+    })) }}
 {% endblock %}

@@ -21,19 +21,6 @@ sitemap.xml:
         path: /sitemap.xml
         defaults: { _format: xml }
     template_static: template/seo/sitemap.xml.twig
-fragment_footer:
-    config:
-        path: /_fragments/footer.html
-    query: '{"query":{"bool":{"must":[{"term":{"_id":"VFXMYX4BJPvkxMnifPeS"}},{"terms":{"_contenttype":["structure"]}}]}},"size":1}'
-    template_static: template/fragments/footer.html.twig
-fragment_socials:
-    config:
-        path: /_fragments/socials.html
-    template_static: template/fragments/socials.html.twig
-fragment_last_updates:
-    config:
-        path: /_fragments/last_updates.html
-    template_static: template/fragments/last_updates.html.twig
 favicon_ico:
     config:
         path: /favicon.ico

@@ -13,7 +13,8 @@
             "unmapped_type": "long"
         }
     }
-}, 0 , app.request.get('limit')|default(10)) %}
+}, 0 , limit|default(10)) %}
+
 
 <ul>
     {% for item in result.hits.hits %}
