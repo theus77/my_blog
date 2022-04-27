@@ -21,6 +21,14 @@ favicon_ico:
         path: /favicon.ico
         controller: 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction'
         defaults: { permanent: true, path: '/bundles/emsch_assets/static/icon64.png?1b0ece819cfd009e2a86eb0fb007dc2df2c766b8' }
+match_all_pdf:
+    config:
+        path: { fr: 'fr/{path}.pdf', en: '{path}.pdf' }
+        controller: 'emsch.controller.router:asset'
+        defaults: { path: / }
+        requirements: { path: '^(?!(_wdt|_profiler|file)(\/.*$)?).+' }
+    query: '{"query":{"bool":{"must":[{"term":{"path":{"value":"%path%","boost":1}}},{"term":{"locale":{"value":"%_locale%","boost":1}}},{"terms":{"_contenttype":["page"]}}]}},"size":1}'
+    template_static: template/pages/page.pdf.twig
 match_all:
     config:
         path: { fr: 'fr/{path}', en: '{path}' }

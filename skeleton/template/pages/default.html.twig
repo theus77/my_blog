@@ -37,7 +37,7 @@
                             </p>
                             <div class="d-print-none">
                                 {% if source.attachment is defined %}
-                                    <a class="btn btn-light text-dark shadow-sm mt-1 me-1" href="{{- ems_asset_path(source.attachment) -}}" target="_blank">{{- source.attachment_label|default('website.download'|trans) -}}</a>
+                                    <a class="btn btn-light text-dark shadow-sm mt-1 me-1" href="{{- path('match_all_pdf', {path: app.request.get('path')}) -}}" target="_blank">{{- source.attachment_label|default('website.download'|trans) -}}</a>
                                 {% endif %}
 {#                                    <a class="btn btn-success shadow-sm mt-1" href="https://demo.templateflip.com/right-resume/#contact">#}
 {#                                        Hire Me#}

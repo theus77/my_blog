@@ -1,0 +1,10 @@
+{% set asset = {
+    hash : source.attachment.sha1,
+    config: {
+        _mime_type: 'application/pdf',
+        _disposition: 'inline',
+    },
+    filename: app.request.get('path')|split('/')|last ~ '.pdf',
+} %}
+
+{{- asset|json_encode|raw -}}
