@@ -2,11 +2,6 @@ blog_test_print_margin:
     config:
         path: /blog/test/page-margin-print-css
     template_static: template/blog/page-margin-print-css.html.twig
-cv_pdf_format:
-    config:
-        path: /mathieu-de-keyzer.pdf
-        controller: emsch.controller.pdf
-    template_static: template/pages/cv.pdf.twig
 google-site-verification:
     config:
         path: /google559a317bdba2ec40.html
