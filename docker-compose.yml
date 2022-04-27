@@ -2,9 +2,24 @@ version: "3.3"
 
 services:
 
+  traefik:
+    image: "traefik:v2.2"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8888:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
   skeleton:
     image: elasticms/website-skeleton
-    container_name: cv
     environment:
       - PUID=1000
       - PGID=1000
@@ -26,6 +41,7 @@ services:
       - 'TRUSTED_PROXIES=127.0.0.1,REMOTE_ADDR'
       - 'TRUSTED_HOSTS=localhost,*.localhost'
       - 'EMSCH_ASSET_LOCAL_FOLDER=skeleton'
+      - VARNISH_ENABLED=true
     volumes:
       - ./configs/skeleton:/opt/configs
       - ./skeleton:/opt/src/local/cv_v1_preview
@@ -36,37 +52,12 @@ services:
       - ./dist:/opt/src/public/skeleton:ro
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.cv.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`{project:[a-z0-9\\-_\\.]+}.cv-dev.localhost`,`{www:(www.)?}{localeName:(cv)}`,`mathieu.dekeyzer.net`)"
+      - "traefik.http.routers.cv.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`{www:(www.)?}{localeName:(cv)}`,`mathieu.dekeyzer.net`)"
       - "traefik.http.routers.cv.entrypoints=web"
-      - "traefik.http.routers.cv-tls.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`{project:[a-z0-9\\-_\\.]+}.cv-dev.localhost`,`{www:(www.)?}{localeName:(cv)}`,`mathieu.dekeyzer.net`)"
+      - "traefik.http.routers.cv.service=cv"
+      - "traefik.http.routers.cv-tls.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`{www:(www.)?}{localeName:(cv)}`,`mathieu.dekeyzer.net`)"
       - "traefik.http.routers.cv-tls.entrypoints=websecure"
       - "traefik.http.routers.cv-tls.tls=true"
+      - "traefik.http.routers.cv-tls.service=cv"
+      - "traefik.http.services.cv.loadbalancer.server.port=6081"
 
-  varnish:
-    image: varnish:6.2
-    container_name: varnish_cv
-    depends_on:
-      - skeleton
-    volumes:
-      - ./configs/varnish.vcl:/etc/varnish/default.vcl
-      - varnish:/var/lib/varnish
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Brussels
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.cv-varnish.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}-varnish.cv.localhost`,`{project:[a-z0-9\\-_\\.]+}-varnish.cv-dev.localhost`,`{www:(www.)?}{localeName:(cv)}`,`mathieu.dekeyzer.net`)"
-      - "traefik.http.routers.cv-varnish.entrypoints=web"
-      - "traefik.http.routers.cv-varnish-tls.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}-varnish.cv.localhost`,`{project:[a-z0-9\\-_\\.]+}-varnish.cv-dev.localhost`,`{www:(www.)?}{localeName:(cv)}`,`mathieu.dekeyzer.net`)"
-      - "traefik.http.routers.cv-varnish-tls.entrypoints=websecure"
-      - "traefik.http.routers.cv-varnish-tls.tls=true"
-
-volumes:
-  varnish:
-    driver: local
-
-networks:
-  default:
-    external:
-      name: skeleton
