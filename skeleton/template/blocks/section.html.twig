@@ -1,7 +1,7 @@
 {% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}
 
 {% block row %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if item.object.hr|default(false) %}
             <hr class="d-print-none">
         {% endif %}
@@ -14,7 +14,7 @@
                 {% endif %}
             </div>
         </div>
-    {% endspaceless %}
+    {% endapply %}
 {% endblock row %}
 
 {% block widget %}{% endblock widget %}

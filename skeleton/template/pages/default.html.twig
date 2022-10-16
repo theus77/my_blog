@@ -2,7 +2,7 @@
 {% trans_default_domain trans_default_domain %}
 
 {% block page_content %}
-    {% spaceless %}
+    {% apply spaceless %}
         <div class="container">
             <div class="cover shadow-lg bg-white">
                 <div class="cover-bg p-3 p-lg-4 text-white" id="cv-header">
@@ -70,5 +70,5 @@
                 </div>
             </div>
         </div>
-    {% endspaceless -%}
+    {% endapply -%}
 {% endblock page_content %}

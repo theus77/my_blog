@@ -2,7 +2,7 @@
 {% trans_default_domain trans_default_domain %}
 
 {% block request %}
-    {% spaceless %}
+    {% apply spaceless %}
         <!DOCTYPE html>
         <html lang="{{ app.request.locale }}">
             <head>
@@ -107,5 +107,5 @@
 
             </body>
         </html>
-    {% endspaceless -%}
+    {% endapply -%}
 {% endblock request %}

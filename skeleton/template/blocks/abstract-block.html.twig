@@ -1,5 +1,5 @@
 {% block render %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% set childrenHaveBeenGenerated = false %}
         {% set currentBlockLevel = 1 %}
         {% set headerBlockLevel = 2 %}
@@ -14,11 +14,11 @@
                 {{ block("row", "@EMSCH/template/blocks/"~item.type~".html.twig") }}
             {% endwith %}
         {%  endfor %}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock render %}
 
 {% block row %}
-    {% spaceless %}
+    {% apply spaceless %}
         <div class="{{ item.object.class|default('pt-4 px-3 px-lg-4') }}" id="row-{{ item.id }}">
             {{ block('title', "@EMSCH/template/blocks/"~item.type~".html.twig") }}
             {{ block('widget', "@EMSCH/template/blocks/"~item.type~".html.twig") }}
@@ -26,15 +26,15 @@
                 {{ block('children', "@EMSCH/template/blocks/"~item.type~".html.twig") }}
             {% endif %}
         </div>
-    {% endspaceless %}
+    {% endapply %}
 {% endblock row %}
 
 {% block title %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if item.object.label is defined %}
             <h{{ headerBlockLevel }} class="h{{ headerBlockLevel+1 }} mb-4 mt-2">{{ item.object.label|default('') }}</h{{ headerBlockLevel }}>
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock title %}
 
 {% block widget %}
@@ -42,7 +42,7 @@
 {% endblock widget %}
 
 {% block children %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% if not childrenHaveBeenGenerated %}
             {% set currentBlockLevel = currentBlockLevel + 1 %}
             {% set headerBlockLevel = headerBlockLevel + (item.object.label is defined ? 1 : 0) %}
@@ -51,5 +51,5 @@
             {% endfor %}
             {% set childrenHaveBeenGenerated = true %}
         {% endif %}
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
