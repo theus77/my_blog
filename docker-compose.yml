@@ -20,6 +20,7 @@ services:
 
   skeleton:
     image: elasticms/website-skeleton
+    user: "${UID}:${GID}"
     environment:
       - PUID=1000
       - PGID=1000
