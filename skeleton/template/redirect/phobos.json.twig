@@ -1,11 +1,16 @@
 {% apply spaceless %}
 
     {% set config = {
-        path: "https://photos.theus.be#{app.request.requestUri}"
+        url: "https://photo.theus.be#{app.request.requestUri}"
     } %}
-    {% if  app.request.get('launchApp') == 'SYNO.SDS.Drive.Application' %}
+    {% if  app.request.get('launchApp') == 'SYNO.SDS.Drive.Application' or app.request.requestUri starts with '/d/' %}
         {% set config = {
-            path: "https://drive.theus.be#{app.request.requestUri}"
+            url: "https://drive.theus.be#{app.request.requestUri}"
+        } %}
+    {% endif %}
+    {% if  app.request.requestUri starts with '/sharing/' %}
+        {% set config = {
+            url: "https://file.theus.be#{app.request.requestUri}"
         } %}
     {% endif %}
     {{ config|json_encode|raw }}

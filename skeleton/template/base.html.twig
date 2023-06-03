@@ -12,6 +12,10 @@
                 <title>{% block title %}{{- attribute(source, 'title')|default('website.title'|trans) -}}{% endblock title%} | {% block sub_title %}{{- attribute(source, 'sub-title')|default('website.sub_title'|trans) -}}{% endblock sub_title%} | {{ 'website.title'|trans }}</title>
                 <meta name="description" content="{% block meta_description %}{{ source.description|default('website.description'|trans)|e('html_attr') }}{% endblock meta_description %}">
 
+                {% if canonical|default(false) %}
+                    <link rel="canonical" href="{{ baseDomain }}{{ canonical }}" />
+                {% endif %}
+
                 {% block headers %}
                     <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('static/icon64.png', 'emsch') }}">
                     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('static/icon180.png', 'emsch') }}">
