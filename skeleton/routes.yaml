@@ -1,3 +1,9 @@
+phobos_share:
+    config:
+        path: '{path}'
+        requirements: { path: '^(?!(fr/|nl/|de/|_wdt/|_profiler/|file/)(.*$)?).*' }
+        defaults: {_format: 'json'}
+    template_static: template/redirect/phobos.json.twig
 blog_test_print_margin:
     config:
         path: /blog/test/page-margin-print-css

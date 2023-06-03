@@ -1,0 +1,12 @@
+{% apply spaceless %}
+
+    {% set config = {
+        path: "https://photos.theus.be#{app.request.requestUri}"
+    } %}
+    {% if  app.request.get('launchApp') == 'SYNO.SDS.Drive.Application' %}
+        {% set config = {
+            path: "https://drive.theus.be#{app.request.requestUri}"
+        } %}
+    {% endif %}
+    {{ config|json_encode|raw }}
+{% endapply %}
