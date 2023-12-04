@@ -1,26 +1,26 @@
 # CV
 
-To build the project:
+Define the .env file (start pby coping the .env.dist: `cp .env.dist .env`)
+
+To build the webpack project (js, css, ...):
 
 ```console
-npm install 
-npm run dev 
+npm install
+npm run dev
 npm run prod
 npm run watch
-npm run zip #generate the zip
-npm run release #build in prod than generate the zip
 ```
 
 Optional: Update the images:
 
 ```console
-docker-compose pull
+docker compose pull
 ```
 
 Start the project:
 
 ```console
-docker-compose up -d --force-recreate
+docker compose up -d --force-recreate --remove-orphans
 ```
 
 ## Local skeleton
@@ -28,10 +28,10 @@ docker-compose up -d --force-recreate
 Local skeleton development:
 
 ```bash
-docker-compose exec skeleton preview emsch:local:pull
-docker-compose exec skeleton preview emsch:local:status
-docker-compose exec skeleton preview emsch:local:login
-docker-compose exec skeleton preview emsch:local:push
+docker compose exec skeleton preview emsch:local:pull
+docker compose exec skeleton preview emsch:local:status
+docker compose exec skeleton preview emsch:local:login
+docker compose exec skeleton preview emsch:local:push
 ```
 
 
@@ -68,4 +68,4 @@ Useful commands:
         - `oc get pods | grep webonss-live`
         - `oc port-forward ems-webonss-live-10-27hnk 9000:9000`
         - In another console: `curl --header "Host: www.rsz.be" http://localhost:9000`
- 
+
