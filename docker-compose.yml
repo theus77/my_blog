@@ -46,10 +46,10 @@ services:
       - ./dist:/opt/src/public/skeleton:ro
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.cv.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`{www:(www.)?}{localeName:(cv)}`,`mathieu.dekeyzer.net`)"
+      - "traefik.http.routers.cv.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`mathieu.dekeyzer.net`)"
       - "traefik.http.routers.cv.entrypoints=web"
       - "traefik.http.routers.cv.service=cv"
-      - "traefik.http.routers.cv-tls.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`{www:(www.)?}{localeName:(cv)}`,`mathieu.dekeyzer.net`)"
+      - "traefik.http.routers.cv-tls.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`mathieu.dekeyzer.net`)"
       - "traefik.http.routers.cv-tls.entrypoints=websecure"
       - "traefik.http.routers.cv-tls.tls=true"
       - "traefik.http.routers.cv-tls.service=cv"
