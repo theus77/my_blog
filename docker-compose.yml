@@ -19,7 +19,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   skeleton:
-    image: elasticms/website-skeleton:5.4
+    image: elasticms/website-skeleton:5.11.2
 #    user: "${UID:-1000}:${GID:-1000}"
     environment:
       - TZ=Europe/Brussels
@@ -30,7 +30,6 @@ services:
       - EMS_FROM_EMAIL_ADDRESS=dev-skeleton@example.com
       - EMS_FROM_EMAIL_NAME=DevSkeleton
       - MAILER_URL=smtp://mailhog:1025
-      - 'ENVIRONMENT_ALIAS_BASE_PATH=../'
       - 'BACKEND_URL=${BACKEND_URL}'
       - 'TRUSTED_PROXIES=127.0.0.1,REMOTE_ADDR'
       - 'TRUSTED_HOSTS=localhost,*.localhost'
