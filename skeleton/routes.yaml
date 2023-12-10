@@ -35,6 +35,12 @@ match_all:
     config:
         path: { fr: 'fr/{path}', en: '{path}' }
         defaults: { path: / }
-        requirements: { path: '^(?!(_wdt|_profiler|file)(\/.*$)?).+' }
+        requirements: { path: '^(?!(_wdt|_profiler|_error|file)(\/.*$)?).+' }
     query: '{"query":{"bool":{"must":[{"term":{"path":{"value":"%path%","boost":1}}},{"term":{"locale":{"value":"%_locale%","boost":1}}},{"terms":{"_contenttype":["page"]}}]}},"size":1}'
     template_static: template/pages/page.html.twig
+emsch_error:
+    config:
+        path: '/_error/{statusCode}'
+        controller: 'emsch.controller.router::errorPreview'
+        defaults: { statusCode: 500 }
+

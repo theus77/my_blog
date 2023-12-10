@@ -7,7 +7,7 @@
 
         <p>
             The requested page couldn't be {% block error_action %}generated{% endblock error_action %}. Checkout for any URL
-            misspelling or <a href="{{ path('match_all') }}">return to the homepage</a>.
+            misspelling or <a href="{{ path('match_all', {_locale: 'en'}) }}">return to the homepage</a>.
         </p>
     </div>
 {% endblock page_content %}
