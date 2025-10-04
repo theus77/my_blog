@@ -1,0 +1,4 @@
+{
+    "body": "{% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}\n\n\n{% block widget %}\n    <div>\n        <figure>\n            <img src=\"{{ ems_asset_path(item.object.file) }}\">\n            <figcaption>{{ item.object.label }}</figcaption>\n        </figure>\n    </div>\n{% endblock %}\n\n{% block title %}{% endblock %}",
+    "name": "blocks/image.html.twig"
+}

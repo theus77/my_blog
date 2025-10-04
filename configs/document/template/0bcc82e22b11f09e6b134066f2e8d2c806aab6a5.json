@@ -1,0 +1,4 @@
+{
+    "body": "{% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}\n\n{% block widget %}\n    {{ item.object.body|default('')|emsch_routing }}\n{% endblock %}\n",
+    "name": "blocks/paragraph.html.twig"
+}

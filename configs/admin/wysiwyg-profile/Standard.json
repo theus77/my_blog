@@ -1,0 +1,13 @@
+{
+    "class": "EMS\\CoreBundle\\Entity\\WysiwygProfile",
+    "arguments": [],
+    "properties": {
+        "name": "Standard",
+        "config": "{\n\"plugins\": \"adv_link,uploadimage,imagebrowser,a11yhelp,basicstyles,bidi,blockquote,clipboard,colorbutton,colordialog,contextmenu,dialogadvtab,div,elementspath,enterkey,entities,filebrowser,find,floatingspace,format,horizontalrule,htmlwriter,image2,indentlist,indentblock,justify,language,list,liststyle,magicline,maximize,newpage,pastefromword,pastetext,preview,removeformat,resize,save,scayt,selectall,showborders,sourcearea,specialchar,stylescombo,tab,table,tabletools,templates,toolbar,undo,wsc,wysiwygarea\",\n\"pasteFromWordRemoveFontStyles\": true,\n\"pasteFromWordRemoveStyles\": true,\n\"language\": \"en\",\n\"toolbarGroups\": [{\n\"name\": \"clipboard\",\n\"groups\": [\"clipboard\", \"undo\"]\n}, {\n\"name\": \"clipboard\",\n\"groups\": [\"clipboard\", \"undo\"]\n}, {\n\"name\": \"editing\",\n\"groups\": [\"spellchecker\"]\n}, {\n\"name\": \"links\"\n}, {\n\"name\": \"insert\"\n}, {\n\"name\": \"tools\",\n\"groups\": [\"mode\"]\n}, \"/\", {\n\"name\": \"basicstyles\",\n\"groups\": [\"basicstyles\", \"cleanup\"]\n}, {\n\"name\": \"paragraph\",\n\"groups\": [\"list\", \"indent\", \"blocks\", \"align\"]\n}, {\n\"name\": \"styles\"\n}]\n}",
+        "orderKey": 1,
+        "__initializer__": null,
+        "__cloner__": null,
+        "__isInitialized__": true
+    },
+    "replaced": []
+}

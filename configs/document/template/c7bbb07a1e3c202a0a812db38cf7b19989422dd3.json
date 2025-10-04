@@ -1,0 +1,4 @@
+{
+    "body": "{% apply spaceless %}\n\n    {% set config = {\n        url: \"https://photo.theus.be#{app.request.requestUri}\"\n    } %}\n    {% if  app.request.get('launchApp') == 'SYNO.SDS.Drive.Application' or app.request.requestUri starts with '/d/' %}\n        {% set config = {\n            url: \"https://drive.theus.be#{app.request.requestUri}\"\n        } %}\n    {% endif %}\n    {% if  app.request.requestUri starts with '/sharing/' %}\n        {% set config = {\n            url: \"https://file.theus.be#{app.request.requestUri}\"\n        } %}\n    {% endif %}\n    {{ config|json_encode|raw }}\n{% endapply %}\n",
+    "name": "redirect/phobos.json.twig"
+}

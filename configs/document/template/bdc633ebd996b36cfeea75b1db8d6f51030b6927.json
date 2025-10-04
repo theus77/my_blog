@@ -1,0 +1,4 @@
+{
+    "body": "{% trans_default_domain trans_default_domain %}\n\n{% block sub_toc %}\n    {% if item.children|default([])|length > 1 %}\n        <ul class=\"list-group pt-2\">\n            {% for item in item.children %}\n                {{ block('item') }}\n            {% endfor %}\n        </ul>\n    {% endif %}\n{% endblock sub_toc %}\n\n\n{% block toc %}\n    {% set blocks = source.blocks|default('{}')|ems_json_decode %}\n    {% if blocks|length > 2 %}\n        <ul class=\"list-group p-3\">\n            {% for item in blocks %}\n                {{ block('item') }}\n            {% endfor %}\n        </ul>\n    {% endif %}\n{% endblock toc %}\n\n{% block item %}\n    {% if item.label is defined %}\n        <li class=\"list-group-item\">\n            <a href=\"#row-{{ item.id }}\">{{ item.label }}</a>\n            {{- block('sub_toc') -}}\n        </li>\n    {% endif %}\n{% endblock item %}",
+    "name": "helper/toc.html.twig"
+}

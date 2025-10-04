@@ -1,0 +1,4 @@
+{
+    "body": "{% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}\n\n{% block widget %}\n    {{ render_esi(controller('emsch.controller.embed::fragment', {\n        template: '@EMSCH/template/fragments/last_updates.html.twig',\n        context: {\n            trans_default_domain: trans_default_domain,\n            limit: item.object.limit\n        },\n    })) }}\n{% endblock %}\n",
+    "name": "blocks/last_updates.html.twig"
+}

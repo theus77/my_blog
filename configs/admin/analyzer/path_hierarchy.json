@@ -1,0 +1,19 @@
+{
+    "class": "EMS\\CoreBundle\\Entity\\Analyzer",
+    "arguments": [],
+    "properties": {
+        "name": "path_hierarchy",
+        "dirty": true,
+        "label": "Path hierarchy",
+        "options": {
+            "type": "custom",
+            "tokenizer": "path_hierarchy",
+            "char_filter": [],
+            "filter": [
+                "standard"
+            ]
+        },
+        "orderKey": null
+    },
+    "replaced": []
+}

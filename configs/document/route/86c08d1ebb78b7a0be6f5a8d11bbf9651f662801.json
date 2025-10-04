@@ -1,0 +1,5 @@
+{
+    "config": "{\"path\":\"\\/_error\\/{statusCode}\",\"controller\":\"emsch.controller.router::errorPreview\",\"defaults\":{\"statusCode\":500}}",
+    "name": "emsch_error",
+    "order": 8
+}

@@ -1,0 +1,4 @@
+{
+    "body": "{% extends '@EMSCH/template/fragments/abstract.twig' %}\n\n{%- block content -%}\n    {%- apply spaceless -%}\n        <div>\n            {% for social in socials %}\n                <div class=\"mb-2\">\n                    <div class=\"text-dark\"><i class=\"{{ social.icon }} mr-1\"></i><span>&nbsp;<a href=\"{{ social.url }}\">{{ social.url }}</a></span>\n                    </div>\n                </div>\n            {% endfor %}\n        </div>\n    {%- endapply -%}\n{%- endblock content -%}",
+    "name": "fragments/socials.html.twig"
+}

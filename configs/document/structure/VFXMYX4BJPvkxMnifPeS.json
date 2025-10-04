@@ -1,0 +1,4 @@
+{
+    "label": "Socials",
+    "structure": "[{\"id\":\"6bc64e3c-81d5-4fde-b39a-ab172f1f50ec\",\"label\":\"Website\",\"type\":\"link\",\"object\":{\"class\":\"fab fa-html5\",\"label\":\"Website\",\"link\":\"https://mathieu.dekeyzer.net/\"},\"children\":[]},{\"id\":\"5848e9d2-c9a6-4d77-996e-18cfa9708de5\",\"label\":\"GitHub\",\"type\":\"link\",\"object\":{\"class\":\"fab fa-github\",\"label\":\"GitHub\",\"link\":\"https://github.com/theus77\"},\"children\":[]},{\"id\":\"aebb730f-8423-4c73-82ff-db0aa3a1f02c\",\"label\":\"LinkedIn\",\"type\":\"link\",\"object\":{\"class\":\"fab fa-linkedin\",\"label\":\"LinkedIn\",\"link\":\"https://www.linkedin.com/in/mathieudk/\"},\"children\":[]},{\"id\":\"eb2593c6-72d7-4511-b3a2-5ceebec3512d\",\"label\":\"Instagram\",\"type\":\"link\",\"object\":{\"class\":\"fab fa-instagram\",\"label\":\"Instagram\",\"link\":\"https://www.instagram.com/dekeyzermathieu/\"},\"children\":[]}]"
+}

@@ -1,0 +1,15 @@
+{
+    "blocks": "[{\"id\":\"e6e61874-c365-4422-b01a-f123538bbf9f\",\"label\":\"Unbreakable space in page layout\",\"type\":\"doc\",\"object\":{\"label\":\"Unbreakable space in page layout\",\"body\":\"It's obvious, but I never realized that the main purpose of the unbreakable space `&nbsp;` is to avoid split of consecutive words. Just like my family name. So this `De&nbsp;Keyzer` will avoid splitting the `De` on a line and `Keyzer` on the next one.\\r\\n\\r\\nIt's also possible to [generate a UTF8 unbreakable character](https:\\/\\/en.wikipedia.org\\/wiki\\/Non-breaking_space#Keyboard_entry_methods) (you don't have to handle a HTML entity). On OS X `Option`+`Space` and on Windows `Alt-Gr`+`0` `1` `6` `0` or  `Alt-Gr`+`2` `5` `5` (but it's not always working).\\r\\n\\r\\nFor instance, it may be usefull to avoid a lost `I` at the end of lignes like this: `I&nbsp;want`.\"},\"children\":[]}]",
+    "description": "HTML unbreakable space can be used to avoid split word",
+    "keywords": "HTML nbsp unbreakable space",
+    "label": "2021-05-24 Unbreakable De Keyzer",
+    "locale": "en",
+    "path": "blog/2021-05-24/unbreakable-de-keyzer",
+    "published_date": "2021-05-24T10:32:28+02:00",
+    "search": [
+        "Unbreakable space in page layout",
+        "It's obvious, but I never realized that the main purpose of the unbreakable space `&nbsp;` is to avoid split of consecutive words. Just like my family name. So this `De&nbsp;Keyzer` will avoid splitting the `De` on a line and `Keyzer` on the next one.\r\n\r\nIt's also possible to [generate a UTF8 unbreakable character](https://en.wikipedia.org/wiki/Non-breaking_space#Keyboard_entry_methods) (you don't have to handle a HTML entity). On OS X `Option`+`Space` and on Windows `Alt-Gr`+`0` `1` `6` `0` or  `Alt-Gr`+`2` `5` `5` (but it's not always working).\r\n\r\nFor instance, it may be usefull to avoid a lost `I` at the end of lignes like this: `I&nbsp;want`."
+    ],
+    "template": "blog",
+    "title": "Unbreakable De Keyzer"
+}

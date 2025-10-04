@@ -1,0 +1,14 @@
+{
+    "blocks": "[{\"id\":\"bee97555-3785-456c-8326-7c1d3ec8c543\",\"label\":\"Example of elasticms deployment on AWS\",\"type\":\"paragraph\",\"object\":{\"label\":\"Example of elasticms deployment on AWS\",\"body\":\"<p>Here is a schema on how you should deploy elasticms on AWS (or any cloud platform)</p>\\r\\n\\r\\n<p><a href=\\\"ems://asset:9f76fe1e24af1496ebccda8ba7f1a27be003cf5b?name=elasticms-aws-greenshift.drawio&amp;type=application/octet-stream\\\">elasticms on AWS</a></p>\"},\"children\":[]}]",
+    "description": "Deploy elasticms on AWS",
+    "label": "2021-12-06 AWS architecture",
+    "locale": "en",
+    "path": "2021-12-06-aws-architecture",
+    "published_date": "2021-12-06T15:22:58+01:00",
+    "search": [
+        "Example of elasticms deployment on AWS",
+        "Here is a schema on how you should deploy elasticms on AWS (or any cloud platform)\r\n\r\nelasticms on AWS"
+    ],
+    "template": "blog",
+    "title": "Deploy elasticms on AWS"
+}

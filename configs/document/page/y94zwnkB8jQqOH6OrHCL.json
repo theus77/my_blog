@@ -1,0 +1,14 @@
+{
+    "blocks": "[{\"id\":\"7e52693d-7970-4f39-9e22-93261a5e777f\",\"label\":\"Why this web site\",\"type\":\"section\",\"object\":{\"label\":\"Why this web site\",\"hr\":false},\"children\":[{\"id\":\"553f40d7-9250-4641-a26f-5ca48fd86b62\",\"label\":\" \",\"type\":\"paragraph\",\"object\":{\"body\":\"<p>As everyone, I have multiple facets, but one of the most dominant facet is the web development. It&#39;s my&nbsp;work but it&#39;s also much more than that. Here a small web site that I&#39;ll use as :</p>\\r\\n\\r\\n<ul>\\r\\n\\t<li>development sandbox within&nbsp;the real world</li>\\r\\n\\t<li>blog for my day to day work related experiences\\r\\n\\t<ul>\\r\\n\\t\\t<li>in order to share it with my collegues</li>\\r\\n\\t\\t<li>as memory aid</li>\\r\\n\\t\\t<li>centralized my bookmarks</li>\\r\\n\\t</ul>\\r\\n\\t</li>\\r\\n\\t<li>for hosting my online <a href=\\\"ems://object:page:796jwXkB8jQqOH6ODm4L\\\">online resume</a></li>\\r\\n</ul>\\r\\n\\r\\n<p>And, off-course, all of this using <a href=\\\"https://github.com/ems-project\\\">elasticms</a>.</p>\",\"class\":\"col-md-8\"}},{\"id\":\"3868362b-863a-400f-940c-78120b59e975\",\"label\":\"Last posts\",\"type\":\"last_updates\",\"object\":{\"label\":\"Last posts\",\"limit\":20,\"class\":\"col-md-4\"}}]}]",
+    "description": "Why this website? For my CV and for having a development sandbox",
+    "label": "Homepage",
+    "locale": "en",
+    "path": "/",
+    "search": [
+        "Why this web site",
+        "As everyone, I have multiple facets, but one of the most dominant facet is the web development. It&#39;s my&nbsp;work but it&#39;s also much more than that. Here a small web site that I&#39;ll use as :\r\n\r\n\r\n\tdevelopment sandbox within&nbsp;the real world\r\n\tblog for my day to day work related experiences\r\n\t\r\n\t\tin order to share it with my collegues\r\n\t\tas memory aid\r\n\t\tcentralized my bookmarks\r\n\t\r\n\t\r\n\tfor hosting my online online resume\r\n\r\n\r\nAnd, off-course, all of this using elasticms.",
+        "Last posts"
+    ],
+    "template": "page",
+    "title": "Welcome on Mathieu's website"
+}

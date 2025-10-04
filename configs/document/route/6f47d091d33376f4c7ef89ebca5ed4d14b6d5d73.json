@@ -1,0 +1,6 @@
+{
+    "config": "{\"path\":\"\\/blog\\/test\\/page-margin-print-css\"}",
+    "name": "blog_test_print_margin",
+    "order": 2,
+    "template_static": "template:0ecaf8121eb75fd4f2cf51c2653db2b017ebfb8b"
+}

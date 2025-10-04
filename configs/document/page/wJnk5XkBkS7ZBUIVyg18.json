@@ -1,0 +1,14 @@
+{
+    "blocks": "[{\"id\":\"5e6c24ac-829d-4aff-a48e-bc31f30c1b08\",\"label\":\"All icons that you should consider for your website\",\"type\":\"doc\",\"object\":{\"label\":\"All icons that you should consider for your website\",\"body\":\"You should always prefer a PNG format. \\r\\n\\r\\nHere is the icon's size to have:\\r\\n - 64x64\\r\\n - 180x180\\r\\n - 70x70\\r\\n - 150x150\\r\\n - 310x310\\r\\n - 310x150\\r\\n\\r\\nAnd the HTML header snippet:\\r\\n\\r\\n```html\\r\\n\\r\\n{% block headers %}\\r\\n    <link rel=\\\"icon\\\" type=\\\"image\\/png\\\" sizes=\\\"64x64\\\" href=\\\"{{ asset('bundles\\/emsch_assets\\/static\\/icon64.png') }}?{{ hash }}\\\">\\r\\n    <link rel=\\\"apple-touch-icon\\\" sizes=\\\"180x180\\\" href=\\\"{{ asset('bundles\\/emsch_assets\\/static\\/icon180.png') }}?{{ hash }}\\\">\\r\\n    <meta name=\\\"msapplication-square70x70logo\\\" content=\\\"{{ asset('bundles\\/emsch_assets\\/static\\/icon70.png') }}?{{ hash }}\\\">\\r\\n    <meta name=\\\"msapplication-square150x150logo\\\" content=\\\"{{ asset('bundles\\/emsch_assets\\/static\\/icon150.png') }}?{{ hash }}\\\">\\r\\n    <meta name=\\\"msapplication-square310x310logo\\\" content=\\\"{{ asset('bundles\\/emsch_assets\\/static\\/icon310.png') }}?{{ hash }}\\\">\\r\\n    <meta name=\\\"theme-color\\\" content=\\\"#2e2e2e\\\"\\/>\\r\\n    <meta name=\\\"msapplication-wide310x150logo\\\" content=\\\"{{ asset('bundles\\/emsch_assets\\/static\\/icon-rect-310.png') }}?{{ hash }}\\\">\\r\\n    <meta name=\\\"msapplication-TileColor\\\" content=\\\"#3B3F41\\\">\\r\\n    <link rel=\\\"stylesheet\\\" href=\\\"{{ asset('bundles\\/emsch_assets\\/css\\/app.css') }}?{{ hash }}\\\">\\r\\n{% endblock headers %}\\r\\n```\"},\"children\":[]}]",
+    "description": "List of icons to have for a website",
+    "label": "2021-05-30 Icon formats",
+    "locale": "en",
+    "path": "blog/2021-05-30/website-icon-formats",
+    "published_date": "2021-05-30T11:53:21+02:00",
+    "search": [
+        "All icons that you should consider for your website",
+        "You should always prefer a PNG format. \r\n\r\nHere is the icon's size to have:\r\n - 64x64\r\n - 180x180\r\n - 70x70\r\n - 150x150\r\n - 310x310\r\n - 310x150\r\n\r\nAnd the HTML header snippet:\r\n\r\n```html\r\n\r\n{% block headers %}\r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n{% endblock headers %}\r\n```"
+    ],
+    "template": "blog",
+    "title": "List of icons formats"
+}

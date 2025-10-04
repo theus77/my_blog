@@ -1,0 +1,14 @@
+{
+    "blocks": "[{\"id\":\"20300712-075b-4e87-a04b-ea74383560a1\",\"label\":\"Environment variables in Twig\",\"type\":\"doc\",\"object\":{\"label\":\"Environment variables in Twig\",\"body\":\"Time to time you may need to have access to information, in Twig, that you can not save in your code nor in the CMS\\/backend.\\r\\n\\r\\nFor example a phone number that you don't want to see indexed by Google from Your GitHub repository.\\r\\n\\r\\nOn this website, I need my mobile number for my resume. But I do not want to have it, as a transklation key, commit on GitHub.\\r\\n\\r\\nAnother example are urls which  typically depend on the deployment environment. So when you deploy en ACC the urls are not the same. And you do not want to update your DB each time that your update your ACC from your PROD enviroment.\\r\\n\\r\\n\\r\\nWith this Twig snippet you are abel to get a DATA_PHONE environment variable:\\r\\n\\r\\n```twig\\r\\n{{ app.request.server.all['DATA_PHONE']|default('+32 4XX XX.XX.XX') }}\\r\\n```\"},\"children\":[]}]",
+    "description": "Use environment varibles directly in Twig template",
+    "label": "2021-06-07 Refer to environment variables in twig",
+    "locale": "en",
+    "path": "blog/2021-06-07/environment-variables-in-twig",
+    "published_date": "2021-06-07T12:23:35+02:00",
+    "search": [
+        "Environment variables in Twig",
+        "Time to time you may need to have access to information, in Twig, that you can not save in your code nor in the CMS/backend.\r\n\r\nFor example a phone number that you don't want to see indexed by Google from Your GitHub repository.\r\n\r\nOn this website, I need my mobile number for my resume. But I do not want to have it, as a transklation key, commit on GitHub.\r\n\r\nAnother example are urls which  typically depend on the deployment environment. So when you deploy en ACC the urls are not the same. And you do not want to update your DB each time that your update your ACC from your PROD enviroment.\r\n\r\n\r\nWith this Twig snippet you are abel to get a DATA_PHONE environment variable:\r\n\r\n```twig\r\n{{ app.request.server.all['DATA_PHONE']|default('+32 4XX XX.XX.XX') }}\r\n```"
+    ],
+    "template": "blog",
+    "title": "Refer to environment variables in twig"
+}

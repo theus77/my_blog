@@ -1,0 +1,17 @@
+{
+    "class": "EMS\\CoreBundle\\Entity\\Channel",
+    "arguments": [],
+    "properties": {
+        "name": "live",
+        "alias": "cv_v1_live",
+        "public": false,
+        "label": "Live",
+        "options": {
+            "searchConfig": "[]",
+            "entryPath": "/",
+            "attributes": "{\r\n    \"_locale\": \"en\",\r\n    \"_backend\": \"/.\"\r\n}"
+        },
+        "orderKey": 2
+    },
+    "replaced": []
+}

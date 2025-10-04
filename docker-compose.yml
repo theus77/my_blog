@@ -36,6 +36,8 @@ services:
       - 'EMSCH_ASSET_LOCAL_FOLDER=skeleton'
       - VARNISH_ENABLED=true
     volumes:
+      - ./configs/admin:/opt/src/admin
+      - ./configs/document:/opt/src/document
       - ./configs/skeleton:/opt/configs
       - ./skeleton:/opt/src/local/cv_v1_preview
       - ./skeleton:/opt/src/local/cv_v1_live

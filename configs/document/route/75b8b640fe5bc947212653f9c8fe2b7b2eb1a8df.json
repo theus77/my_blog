@@ -1,0 +1,6 @@
+{
+    "config": "{\"path\":\"{path}\",\"requirements\":{\"path\":\"^(?!(fr\\/|nl\\/|de\\/|_wdt\\/|_profiler\\/|file\\/)(.*$)?).*\"},\"host\":\"share.myam.dk\",\"controller\":\"emsch.controller.router::redirect\"}",
+    "name": "phobos_share",
+    "order": 1,
+    "template_static": "template:c7bbb07a1e3c202a0a812db38cf7b19989422dd3"
+}
