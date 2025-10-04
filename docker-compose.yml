@@ -19,8 +19,8 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   skeleton:
-    image: elasticms/website-skeleton:5.11.2
-#    user: "${UID:-1000}:${GID:-1000}"
+    image: elasticms/website-skeleton:5.17.5
+    user: '1000'
     environment:
       - TZ=Europe/Brussels
       - APP_ENV=dev

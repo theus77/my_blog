@@ -26,7 +26,7 @@ favicon_ico:
 match_all_pdf:
     config:
         path: { fr: 'fr/{path}.pdf', en: '{path}.pdf' }
-        controller: 'emsch.controller.router:asset'
+        controller: 'emsch.controller.router::asset'
         defaults: { path: / }
         requirements: { path: '^(?!(_wdt|_profiler|file)(\/.*$)?).+' }
     query: '{"query":{"bool":{"must":[{"term":{"path":{"value":"%path%","boost":1}}},{"term":{"locale":{"value":"%_locale%","boost":1}}},{"terms":{"_contenttype":["page"]}}]}},"size":1}'
@@ -43,4 +43,3 @@ emsch_error:
         path: '/_error/{statusCode}'
         controller: 'emsch.controller.router::errorPreview'
         defaults: { statusCode: 500 }
-
