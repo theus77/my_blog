@@ -19,7 +19,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   skeleton:
-    image: elasticms/website-skeleton:5.25.10
+    image: elasticms/website-skeleton:6.8.0
     user: '1000'
     environment:
       - TZ=Europe/Brussels
@@ -36,15 +36,15 @@ services:
       - 'EMSCH_ASSET_LOCAL_FOLDER=skeleton'
       - VARNISH_ENABLED=true
     volumes:
-      - ./configs/admin:/opt/src/admin
-      - ./configs/document:/opt/src/document
-      - ./configs/skeleton:/opt/configs
-      - ./skeleton:/opt/src/local/cv_v1_preview
-      - ./skeleton:/opt/src/local/cv_v1_live
-#      - ../EMSCommonBundle:/opt/src/vendor/elasticms/common-bundle
-#      - ../EMSClientHelperBundle:/opt/src/vendor/elasticms/client-helper-bundle
-#      - ../EMSFormBundle:/opt/src/vendor/elasticms/form-bundle
-      - ./dist:/opt/src/public/skeleton:ro
+      - ./configs/admin:/app/src/elasticms/admin
+      - ./configs/document:/app/src/elasticms/document
+      - ./configs/skeleton:/app/config/elasticms
+      - ./skeleton:/app/src/elasticms/local/cv_v1_preview
+      - ./skeleton:/app/src/elasticms/local/cv_v1_live
+#      - ../EMSCommonBundle:/app/src/elasticms/vendor/elasticms/common-bundle
+#      - ../EMSClientHelperBundle:/app/src/elasticms/vendor/elasticms/client-helper-bundle
+#      - ../EMSFormBundle:/app/src/elasticms/vendor/elasticms/form-bundle
+      - ./dist:/app/src/elasticms/public/skeleton:ro
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.cv.rule=HostRegexp(`{project:[a-z0-9\\-_\\.]+}.cv.localhost`,`mathieu.dekeyzer.net`)"

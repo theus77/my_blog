@@ -2,28 +2,26 @@
 {% extends '@EMSCH/template/fragments/abstract.twig' %}
 
 {%- block content -%}
-    {% apply spaceless %}
-        <div class="container d-print-none">
-            <div class="my-3">
-                <div class="h4">{{ 'website.name'|trans }}</div>
-                <div class="footer-nav">
-                    <nav role="navigation">
-                        <ul class="nav justify-content-center">
-                            {% for social in socials %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ social.url }}" title="{{ social.name }}">
-                                        <i class="{{ social.icon }}"></i>
-                                        <span class="menu-title sr-only">{{ social.name }}</span>
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="text-small">
-                <div class="mb-1">© {{ 'now'|date('Y') }}. All rights reserved.</div>
+    <div class="container d-print-none">
+        <div class="my-3">
+            <div class="h4">{{ 'website.name'|trans }}</div>
+            <div class="footer-nav">
+                <nav role="navigation">
+                    <ul class="nav justify-content-center">
+                        {%- for social in socials -%}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ social.url }}" title="{{ social.name }}">
+                                    <i class="{{ social.icon }}"></i>
+                                    <span class="menu-title sr-only">{{ social.name }}</span>
+                                </a>
+                            </li>
+                        {%- endfor -%}
+                    </ul>
+                </nav>
             </div>
         </div>
-    {% endapply %}
+        <div class="text-small">
+            <div class="mb-1">© {{ 'now'|date('Y') }}. All rights reserved.</div>
+        </div>
+    </div>
 {%- endblock content -%}

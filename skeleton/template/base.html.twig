@@ -2,114 +2,111 @@
 {% trans_default_domain trans_default_domain %}
 
 {% block request %}
-    {% apply spaceless %}
-        <!DOCTYPE html>
-        <html lang="{{ app.request.locale }}">
-            <head>
-                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <title>{% block title %}{{- attribute(source, 'title')|default('website.title'|trans) -}}{% endblock title%} | {% block sub_title %}{{- attribute(source, 'sub-title')|default('website.sub_title'|trans) -}}{% endblock sub_title%} | {{ 'website.title'|trans }}</title>
-                <meta name="description" content="{% block meta_description %}{{ source.description|default('website.description'|trans)|e('html_attr') }}{% endblock meta_description %}">
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{{- attribute(source, 'title')|default('website.title'|trans) -}}{% endblock title%} | {% block sub_title %}{{- attribute(source, 'sub-title')|default('website.sub_title'|trans) -}}{% endblock sub_title%} | {{ 'website.title'|trans }}</title>
+        <meta name="description" content="{% block meta_description %}{{ source.description|default('website.description'|trans)|e('html_attr') }}{% endblock meta_description %}">
 
-                {% if canonical|default(false) %}
-                    <link rel="canonical" href="{{ baseDomain }}{{ canonical }}" />
-                {% endif %}
+        {% if canonical|default(false) %}
+            <link rel="canonical" href="{{ baseDomain }}{{ canonical }}" />
+        {% endif %}
 
-                {% block headers %}
-                    <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('static/icon64.png', 'emsch') }}">
-                    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('static/icon180.png', 'emsch') }}">
-                    <meta name="msapplication-square70x70logo" content="{{ asset('static/icon70.png', 'emsch') }}">
-                    <meta name="msapplication-square150x150logo" content="{{ asset('static/icon150.png', 'emsch') }}">
-                    <meta name="msapplication-square310x310logo" content="{{ asset('static/icon310.png', 'emsch') }}">
-                    <meta name="theme-color" content="#2e2e2e"/>
-                    <meta name="msapplication-wide310x150logo" content="{{ asset('static/icon-rect-310.png', 'emsch') }}">
-                    <meta name="msapplication-TileColor" content="#3B3F41">
+        {% block headers %}
+            <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('static/icon64.png', 'emsch') }}">
+            <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('static/icon180.png', 'emsch') }}">
+            <meta name="msapplication-square70x70logo" content="{{ asset('static/icon70.png', 'emsch') }}">
+            <meta name="msapplication-square150x150logo" content="{{ asset('static/icon150.png', 'emsch') }}">
+            <meta name="msapplication-square310x310logo" content="{{ asset('static/icon310.png', 'emsch') }}">
+            <meta name="theme-color" content="#2e2e2e"/>
+            <meta name="msapplication-wide310x150logo" content="{{ asset('static/icon-rect-310.png', 'emsch') }}">
+            <meta name="msapplication-TileColor" content="#3B3F41">
 
-                    <link rel="stylesheet" href="{{ asset('css/app.css', 'emsch') }}">
-                {% endblock headers %}
+            <link rel="stylesheet" href="{{ asset('css/app.css', 'emsch') }}">
+        {% endblock headers %}
 
-            </head>
-            <body id="top">
-                {% block body %}
-                    <table id="page-layout" cellpadding="0" cellspacing="0">
-                        <thead><tr><td>
-                            <div class="page-header-space" aria-hidden="true">&nbsp;</div>
-                        </td></tr></thead>
-                        <tbody><tr><td>
-                            <div class="page-content">
-                                {%- block page_content %}{% endblock page_content -%}
-                            </div>
-                        </td></tr></tbody>
-                        <tfoot><tr><td>
-                            <div class="page-footer-space" aria-hidden="true">&nbsp;</div>
-                        </td></tr></tfoot>
-                    </table>
-
-
-                    <footer class="pt-4 pb-4 text-muted text-center">
-                        {{ render_esi(controller('emsch.controller.embed::fragment', {
-                            template: '@EMSCH/template/fragments/footer.html.twig',
-                            context: {
-                                trans_default_domain: trans_default_domain,
-                            },
-                        })) }}
-                    </footer>
-                {% endblock body %}
+    </head>
+    <body id="top">
+        {% block body %}
+            <table id="page-layout" cellpadding="0" cellspacing="0">
+                <thead><tr><td>
+                    <div class="page-header-space" aria-hidden="true">&nbsp;</div>
+                </td></tr></thead>
+                <tbody><tr><td>
+                    <div class="page-content">
+                        {%- block page_content %}{% endblock page_content -%}
+                    </div>
+                </td></tr></tbody>
+                <tfoot><tr><td>
+                    <div class="page-footer-space" aria-hidden="true">&nbsp;</div>
+                </td></tr></tfoot>
+            </table>
 
 
-                <div class="page-header" aria-hidden="true"></div>
-                <div class="page-footer" aria-hidden="true">
-                    {% block print_footer %}
-                        <div>{{ 'website.name'|trans }}&nbsp;•&nbsp;{{ app.request.server.all['DATA_PHONE']|default('+32 4XX XX.XX.XX') }}&nbsp;•&nbsp;<a href="{{ 'website.url'|trans }}">{{ 'website.url'|trans }}</a></div>
-                        <div>{{ 'website.address'|trans }}</div>
-                    {% endblock print_footer %}
-                </div>
+            <footer class="pt-4 pb-4 text-muted text-center">
+                {{ render_esi(controller('emsch.controller.embed::fragment', {
+                    template: '@EMSCH/template/fragments/footer.html.twig',
+                    context: {
+                        trans_default_domain: trans_default_domain,
+                    },
+                })) }}
+            </footer>
+        {% endblock body %}
 
-                {% block javascript %}
-                    <script src="{{ asset('js/app.js', 'emsch') }}" defer></script>
-                {% endblock javascript %}
 
-                {% if 'preview' in trans_default_domain %}
-                    <script>
-                        (function () {
-                            var _p = '//openfed.github.io/AccessibilityCheck/build/';
-                            var _i = function (s, cb) {
-                                var sc = document.createElement('script');
-                                sc.onload = function () {
-                                    sc.onload = null;
-                                    sc.onreadystatechange = null;
-                                    cb.call(this);
-                                };
-                                sc.onreadystatechange = function () {
-                                    if (/^(complete|loaded)$/.test(this.readyState) === true) {
-                                        sc.onreadystatechange = null;
-                                        sc.onload();
-                                    }
-                                };
-                                sc.src = s;
-                                if (document.head) {
-                                    document.head.appendChild(sc);
-                                } else {
-                                    document.getElementsByTagName('head')[0].appendChild(sc);
-                                }
-                            };
-                            var options = {
-                                path: _p,
-                                show: {
-                                    error: true,
-                                    warning: false,
-                                    notice: false
-                                }
-                            };
-                            _i(_p + 'HTMLCS.js', function () {
-                                HTMLCSAuditor.run('WCAG2AA', null, options);
-                            });
-                        })();
-                    </script>
-                {% endif %}
+        <div class="page-header" aria-hidden="true"></div>
+        <div class="page-footer" aria-hidden="true">
+            {% block print_footer %}
+                <div>{{ 'website.name'|trans }}&nbsp;•&nbsp;{{ app.request.server.all['DATA_PHONE']|default('+32 4XX XX.XX.XX') }}&nbsp;•&nbsp;<a href="{{ 'website.url'|trans }}">{{ 'website.url'|trans }}</a></div>
+                <div>{{ 'website.address'|trans }}</div>
+            {% endblock print_footer %}
+        </div>
 
-            </body>
-        </html>
-    {% endapply -%}
+        {% block javascript %}
+            <script src="{{ asset('js/app.js', 'emsch') }}" defer></script>
+        {% endblock javascript %}
+
+        {% if 'preview' in trans_default_domain %}
+            <script>
+                (function () {
+                    var _p = '//openfed.github.io/AccessibilityCheck/build/';
+                    var _i = function (s, cb) {
+                        var sc = document.createElement('script');
+                        sc.onload = function () {
+                            sc.onload = null;
+                            sc.onreadystatechange = null;
+                            cb.call(this);
+                        };
+                        sc.onreadystatechange = function () {
+                            if (/^(complete|loaded)$/.test(this.readyState) === true) {
+                                sc.onreadystatechange = null;
+                                sc.onload();
+                            }
+                        };
+                        sc.src = s;
+                        if (document.head) {
+                            document.head.appendChild(sc);
+                        } else {
+                            document.getElementsByTagName('head')[0].appendChild(sc);
+                        }
+                    };
+                    var options = {
+                        path: _p,
+                        show: {
+                            error: true,
+                            warning: false,
+                            notice: false
+                        }
+                    };
+                    _i(_p + 'HTMLCS.js', function () {
+                        HTMLCSAuditor.run('WCAG2AA', null, options);
+                    });
+                })();
+            </script>
+        {% endif %}
+    </body>
+</html>
 {% endblock request %}

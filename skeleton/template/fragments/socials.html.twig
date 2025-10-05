@@ -1,14 +1,12 @@
 {% extends '@EMSCH/template/fragments/abstract.twig' %}
 
 {%- block content -%}
-    {%- apply spaceless -%}
-        <div>
-            {% for social in socials %}
-                <div class="mb-2">
-                    <div class="text-dark"><i class="{{ social.icon }} mr-1"></i><span>&nbsp;<a href="{{ social.url }}">{{ social.url }}</a></span>
-                    </div>
+    <div>
+        {%- for social in socials -%}
+            <div class="mb-2">
+                <div class="text-dark"><i class="{{ social.icon }} mr-1"></i><span>&nbsp;<a href="{{ social.url }}">{{ social.url }}</a></span>
                 </div>
-            {% endfor %}
-        </div>
-    {%- endapply -%}
+            </div>
+        {%- endfor -%}
+    </div>
 {%- endblock content -%}

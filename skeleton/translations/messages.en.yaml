@@ -6,9 +6,9 @@ website:
     content_in:
         en: 'Content in English'
         fr: 'Content in French'
-    description: 'Mathieu De Keyzer''s Curriculum vitæ: About him, Technical Skills, Work Experience, Education & Trainings'
+    description: "Mathieu De Keyzer's Curriculum vitæ: About him, Technical Skills, Work Experience, Education & Trainings"
     download: Download
     name: 'Mathieu De Keyzer'
     sub_title: 'HTTP enthusiasts'
-    title: 'Mathieu''s website'
+    title: "Mathieu's website"
     url: 'https://mathieu.dekeyzer.net/'

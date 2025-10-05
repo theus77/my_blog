@@ -1,13 +1,11 @@
-{% apply spaceless %}
-    {% set hash = 'bd1b7509f59bdef3cfed556a3e14181d93aaa242' %}
-    {% set avatarHash = '52f80b11e9d2b5b5b73c6a786800e8b8c4949e3a' %}
-    {% set baseDomain = 'https://mathieu.dekeyzer.net' %}
-    {% set baseUrl = app.request.baseUrl ends with 'index.php' ? (app.request.baseUrl ~ '/') : '' %}
-    {% set localPath = false %}
-    {% if emsLink|default(false) %}
-        {% set canonical = emsLink|emsch_routing %}
-    {% endif %}
-    {% do emsch_assets_version(hash, null) %}
-    {% block request %}
-    {% endblock request %}
-{% endapply -%}
+{%- set hash = '570ab50053dfd58eabe74d8faca66208427c9ce3' -%}
+{%- set avatarHash = '52f80b11e9d2b5b5b73c6a786800e8b8c4949e3a' -%}
+{%- set baseDomain = 'https://mathieu.dekeyzer.net' -%}
+{%- set baseUrl = app.request.baseUrl ends with 'index.php' ? (app.request.baseUrl ~ '/') : '' -%}
+{%- set localPath = false -%}
+{%- if emsLink|default(false) -%}
+    {%- set canonical = emsLink|emsch_routing -%}
+{%- endif -%}
+{%- do emsch_assets_version(hash, null) -%}
+{%- block request -%}
+{%- endblock request -%}
