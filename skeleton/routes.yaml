@@ -21,7 +21,7 @@ robots.txt:
 favicon_ico:
     config:
         path: /favicon.ico
-        controller: 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction'
+        controller: 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirect'
         defaults: { permanent: true, path: '/bundles/emsch_assets/static/icon64.png?1b0ece819cfd009e2a86eb0fb007dc2df2c766b8' }
 match_all_pdf:
     config:
