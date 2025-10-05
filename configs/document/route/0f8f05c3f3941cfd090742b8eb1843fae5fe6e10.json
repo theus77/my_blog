@@ -1,7 +1,0 @@
-{
-    "config": "{\"path\":{\"fr\":\"fr\\/{path}\",\"en\":\"{path}\"},\"defaults\":{\"path\":\"\\/\"},\"requirements\":{\"path\":\"^(?!(_wdt|_profiler|_error|file)(\\\\\\/.*$)?).+\"}}",
-    "name": "match_all",
-    "order": 7,
-    "query": "{\"query\":{\"bool\":{\"must\":[{\"term\":{\"path\":{\"value\":\"%path%\",\"boost\":1}}},{\"term\":{\"locale\":{\"value\":\"%_locale%\",\"boost\":1}}},{\"terms\":{\"_contenttype\":[\"page\"]}}]}},\"size\":1}",
-    "template_static": "template:50fe3628419856ef98b0b0609cdbb3d3ab1dfc7c"
-}

@@ -1,4 +1,0 @@
-{
-    "body": "{% extends '@EMSCH/template/base.html.twig' %}\n\n\n{% block page_content %}\n    <div class=\"text-center mt-4\">\n        <h1>{% block error_title %}Error{% endblock error_title %}</h1>\n\n        <p>\n            The requested page couldn't be {% block error_action %}generated{% endblock error_action %}. Checkout for any URL\n            misspelling or <a href=\"{{ path('match_all', {_locale: 'en'}) }}\">return to the homepage</a>.\n        </p>\n    </div>\n{% endblock page_content %}\n",
-    "name": "error.html.twig"
-}

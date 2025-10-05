@@ -1,4 +1,0 @@
-{
-    "body": "{% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}\n\n{% block row %}\n    {% apply spaceless %}\n        {% if item.object.hr|default(false) %}\n            <hr class=\"d-print-none\">\n        {% endif %}\n        <div class=\"{{ item.object.class|default('pt-4 px-3 px-lg-4') }}\" id=\"row-{{ item.id }}\">\n            {{ block('title', \"@EMSCH/template/blocks/\"~item.type~\".html.twig\") }}\n            <div class=\"row\">\n                {{ block('widget', \"@EMSCH/template/blocks/\"~item.type~\".html.twig\") }}\n                {%  if item.children|default([])|length > 0 %}\n                    {{ block('children', \"@EMSCH/template/blocks/\"~item.type~\".html.twig\") }}\n                {% endif %}\n            </div>\n        </div>\n    {% endapply %}\n{% endblock row %}\n\n{% block widget %}{% endblock widget %}\n",
-    "name": "blocks/section.html.twig"
-}

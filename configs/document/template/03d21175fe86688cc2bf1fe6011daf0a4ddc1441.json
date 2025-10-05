@@ -1,4 +1,0 @@
-{
-    "body": "{%- if 'live' in trans_default_domain -%}\nUser-agent: *\nDisallow: /file/\nDisallow: /_\nDisallow: /metrics/\nDisallow: /iframe/\nDisallow: /init-form/\nDisallow: /form/\nDisallow: /ajax/\nAllow: /\n{%- else -%}\nUser-agent: *\nDisallow: /\n{%- endif -%}\n",
-    "name": "seo/robots.txt.twig"
-}

@@ -130,10 +130,7 @@
                         },
                         "replaced": []
                     }
-                ],
-                "__initializer__": null,
-                "__cloner__": null,
-                "__isInitialized__": true
+                ]
             },
             "replaced": []
         },
@@ -144,6 +141,7 @@
         "editTwigWithWysiwyg": true,
         "webContent": false,
         "autoPublish": false,
+        "environment": "preview",
         "templates": [],
         "views": [
             {
@@ -163,7 +161,8 @@
                     },
                     "orderKey": 0,
                     "public": false,
-                    "role": null
+                    "role": null,
+                    "definition": null
                 },
                 "replaced": []
             }

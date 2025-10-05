@@ -1,7 +1,0 @@
-{
-    "config": "{\"path\":{\"fr\":\"fr\\/{path}.pdf\",\"en\":\"{path}.pdf\"},\"controller\":\"emsch.controller.router::asset\",\"defaults\":{\"path\":\"\\/\"},\"requirements\":{\"path\":\"^(?!(_wdt|_profiler|file)(\\\\\\/.*$)?).+\"}}",
-    "name": "match_all_pdf",
-    "order": 6,
-    "query": "{\"query\":{\"bool\":{\"must\":[{\"term\":{\"path\":{\"value\":\"%path%\",\"boost\":1}}},{\"term\":{\"locale\":{\"value\":\"%_locale%\",\"boost\":1}}},{\"terms\":{\"_contenttype\":[\"page\"]}}]}},\"size\":1}",
-    "template_static": "template:5273b5a7ed1c184f9f0e3904928f9ad16d80f7ab"
-}

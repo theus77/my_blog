@@ -2088,10 +2088,7 @@
                         },
                         "replaced": []
                     }
-                ],
-                "__initializer__": null,
-                "__cloner__": null,
-                "__isInitialized__": true
+                ]
             },
             "replaced": []
         },
@@ -2102,6 +2099,7 @@
         "editTwigWithWysiwyg": false,
         "webContent": true,
         "autoPublish": false,
+        "environment": "preview",
         "templates": [
             {
                 "class": "EMS\\CoreBundle\\Entity\\Template",
@@ -2156,7 +2154,8 @@
                     },
                     "orderKey": 2,
                     "public": true,
-                    "role": null
+                    "role": null,
+                    "definition": null
                 },
                 "replaced": []
             }

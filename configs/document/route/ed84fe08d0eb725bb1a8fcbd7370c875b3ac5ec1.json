@@ -1,5 +1,0 @@
-{
-    "config": "{\"path\":\"\\/favicon.ico\",\"controller\":\"Symfony\\\\Bundle\\\\FrameworkBundle\\\\Controller\\\\RedirectController::urlRedirectAction\",\"defaults\":{\"permanent\":true,\"path\":\"\\/bundles\\/emsch_assets\\/static\\/icon64.png?1b0ece819cfd009e2a86eb0fb007dc2df2c766b8\"}}",
-    "name": "favicon_ico",
-    "order": 5
-}

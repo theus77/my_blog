@@ -1,4 +1,0 @@
-{
-    "body": "{%- set socials = [{\n    name: 'Website',\n    icon: 'fab fa-html5',\n    url: 'https://mathieu.dekeyzer.net',\n},{\n    name: 'GitHub',\n    icon: 'fab fa-github',\n    url: 'https://github.com/theus77',\n},{\n    name: 'Linkedin',\n    icon: 'fab fa-linkedin',\n    url: 'https://www.linkedin.com/in/mathieudk/',\n},{\n    name: 'Instagram',\n    icon: 'fab fa-instagram',\n    url: 'https://www.instagram.com/dekeyzermathieu/',\n}] -%}\n{%- block content -%}\n{%- endblock content -%}",
-    "name": "fragments/abstract.twig"
-}

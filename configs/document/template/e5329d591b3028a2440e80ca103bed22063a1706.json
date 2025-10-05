@@ -1,4 +1,0 @@
-{
-    "body": "{%- trans_default_domain trans_default_domain -%}\n\n{% set result = emsch_search('page', {\n    \"query\": {\n        \"term\": {\n            \"template\": \"blog\"\n        }\n    },\n    \"sort\": {\n        \"published_date\": {\n            \"order\": \"desc\",\n            \"missing\": \"_last\",\n            \"unmapped_type\": \"long\"\n        }\n    }\n}, 0 , limit|default(10)) %}\n\n\n<ul>\n    {% for item in result.hits.hits %}\n        <li><a lang=\"{{ item._source.locale }}\" href=\"{{ path('match_all', {\n                path:item._source.path,\n                _locale:item._source.locale,\n            }) }}\">{{ item._source.title }}</a>\n        {% if app.request.locale != item._source.locale %}\n            &nbsp;[{{ ('website.content_in.'~item._source.locale)|trans }}]\n        {% endif %}\n        </li>\n    {% endfor %}\n</ul>\n",
-    "name": "fragments/last_updates.html.twig"
-}

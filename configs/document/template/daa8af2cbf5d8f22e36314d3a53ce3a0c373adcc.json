@@ -1,4 +1,0 @@
-{
-    "body": "{% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}\n\n{% block row %}\n    <div class=\"{{ item.object.class|default('pt-4 px-3 px-lg-4') }}\" id=\"row-{{ item.id }}\">\n        {{ block('title', \"@EMSCH/template/blocks/\"~item.type~\".html.twig\") }}\n        <dl class=\"dl-horizontal\">\n            {{ block('children') }}\n        </dl>\n    </div>\n{% endblock %}\n\n",
-    "name": "blocks/dl.html.twig"
-}

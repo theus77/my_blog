@@ -1,4 +1,0 @@
-{
-    "body": "{% apply spaceless %}\n    {% set hash = '272b8cbfecaa2de2bee0a56ed2fdb4306ed2c81c' %}\n    {% set avatarHash = '52f80b11e9d2b5b5b73c6a786800e8b8c4949e3a' %}\n    {% set baseDomain = 'https://mathieu.dekeyzer.net' %}\n    {% set baseUrl = app.request.baseUrl ends with 'index.php' ? (app.request.baseUrl ~ '/') : '' %}\n    {% set localPath = false %}\n    {% if emsLink|default(false) %}\n        {% set canonical = emsLink|emsch_routing %}\n    {% endif %}\n    {% do emsch_assets_version(hash) %}\n    {% block request %}\n    {% endblock request %}\n{% endapply -%}\n",
-    "name": "variables.twig"
-}

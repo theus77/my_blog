@@ -1,4 +1,0 @@
-{
-    "body": "{% set template = '@EMSCH/template/pages/default.html.twig' %}\n{% if source.template|default('page') == 'blog' %}\n    {% set template = '@EMSCH/template/pages/blog.html.twig' %}\n{% endif %}\n\n{% extends template %}",
-    "name": "pages/page.html.twig"
-}

@@ -1,4 +1,0 @@
-{
-    "body": "{% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}\n\n{% block row %}\n    {% apply spaceless %}\n        <div class=\"page-break\" aria-hidden=\"true\">&nbsp;</div>\n        {% if item.children|default([])|length > 0 %}\n            {{ block('children') }}\n        {% endif %}\n    {% endapply %}\n{% endblock row %}\n",
-    "name": "blocks/page-break.html.twig"
-}

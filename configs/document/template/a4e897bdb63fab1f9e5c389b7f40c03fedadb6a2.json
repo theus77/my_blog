@@ -1,4 +1,0 @@
-{
-    "body": "{%  apply spaceless %}\n    {{ path('match_all', {\n        path: source.path|default('/') ,\n        _locale: source.locale|default('en')\n    }) }}\n{% endapply %}\n",
-    "name": "page.ems_link.twig"
-}

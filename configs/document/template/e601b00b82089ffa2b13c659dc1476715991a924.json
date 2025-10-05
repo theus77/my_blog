@@ -1,4 +1,0 @@
-{
-    "body": "{% extends '@EMSCH/template/blocks/section.html.twig' %}\n\n{% block children %}\n    <div class=\"timeline\">\n        {{ parent() }}\n    </div>\n{% endblock %}",
-    "name": "blocks/timeline.html.twig"
-}

@@ -4,6 +4,7 @@
     "properties": {
         "name": "preview",
         "label": null,
+        "alias": "cv_v1_preview",
         "color": "aqua",
         "baseUrl": null,
         "managed": true,

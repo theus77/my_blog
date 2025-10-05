@@ -1,4 +1,0 @@
-{
-    "body": "{% extends '@EMSCH/template/error.html.twig' %}\n\n{% block error_title %}Page not found{% endblock error_title %}\n\n{% block error_action %}found{% endblock error_action %}",
-    "name": "error404.html.twig"
-}

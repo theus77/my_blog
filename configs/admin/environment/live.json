@@ -4,6 +4,7 @@
     "properties": {
         "name": "live",
         "label": null,
+        "alias": "cv_v1_live",
         "color": "aqua",
         "baseUrl": null,
         "managed": true,

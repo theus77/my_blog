@@ -1,4 +1,0 @@
-{
-    "body": "{% set asset = {\n    hash : source.attachment.sha1,\n    config: {\n        _mime_type: 'application/pdf',\n        _disposition: 'inline',\n    },\n    filename: app.request.get('path')|split('/')|last ~ '.pdf',\n} %}\n\n{{- asset|json_encode|raw -}}\n",
-    "name": "pages/page.pdf.twig"
-}

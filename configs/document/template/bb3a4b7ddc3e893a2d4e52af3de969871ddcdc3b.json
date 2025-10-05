@@ -1,4 +1,0 @@
-{
-    "body": "{% extends '@EMSCH/template/blocks/abstract-block.html.twig' %}\n\n{% block row %}\n    <dt>{{ item.label }}</dt>\n    <dd>\n        {% if item.object.href is defined %}\n            <a href=\"{{ item.object.href|ems_html_encode }}\" {% if 'https://' in item.object.href %}target=\"_blank\"{% endif %}>{{ item.object.value|ems_html_encode }}</a>\n        {% else %}\n            {{ item.object.value }}\n        {% endif %}\n        {{ block('children') }}\n    </dd>\n{% endblock %}",
-    "name": "blocks/item.html.twig"
-}
